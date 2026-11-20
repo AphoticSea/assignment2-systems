@@ -1,0 +1,10 @@
+{
+  "status": "passed",
+  "size": "small",
+  "context_length": 512,
+  "batch_size": 4,
+  "dtype": "fp32",
+  "grad_enabled": false,
+  "model_training": false,
+  "peak_allocated_mib": 722.6904296875
+}

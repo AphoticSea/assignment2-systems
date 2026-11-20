@@ -2,7 +2,7 @@ name: CS336
 channels:
   - conda-forge
 dependencies:
-  - python=3.11
+  - python=3.11.18
   - pip
 # Install the project's Python packages using the CUDA 12.8 PyTorch wheels.
 # See scripts/setup_conda.sh. The original uv.lock belongs to PyTorch 2.6;

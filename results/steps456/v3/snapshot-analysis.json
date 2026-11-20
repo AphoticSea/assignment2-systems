@@ -1,0 +1,747 @@
+{
+  "small_ctx512_forward_fp32_w2": {
+    "initial_active_gib": 0.48862743377685547,
+    "peak_active_gib": 3.8262205123901367,
+    "event_count": 2472,
+    "largest_allocations": [
+      {
+        "mib": 78.125,
+        "frames": [
+          {
+            "name": "einsum",
+            "filename": "/home/yunz/.local/share/cs336/miniforge3/envs/CS336/lib/python3.11/site-packages/torch/functional.py",
+            "line": 422
+          },
+          {
+            "name": "einsum",
+            "filename": "/home/yunz/.local/share/cs336/miniforge3/envs/CS336/lib/python3.11/site-packages/einops/_backends.py",
+            "line": 291
+          },
+          {
+            "name": "einsum",
+            "filename": "/home/yunz/.local/share/cs336/miniforge3/envs/CS336/lib/python3.11/site-packages/einops/einops.py",
+            "line": 939
+          },
+          {
+            "name": "forward",
+            "filename": "/mnt/d/CodexAtWork/CS336/assignment2-systems-2025/cs336-basics/cs336_basics/model.py",
+            "line": 41
+          },
+          {
+            "name": "_call_impl",
+            "filename": "/home/yunz/.local/share/cs336/miniforge3/envs/CS336/lib/python3.11/site-packages/torch/nn/modules/module.py",
+            "line": 1762
+          },
+          {
+            "name": "_wrapped_call_impl",
+            "filename": "/home/yunz/.local/share/cs336/miniforge3/envs/CS336/lib/python3.11/site-packages/torch/nn/modules/module.py",
+            "line": 1751
+          },
+          {
+            "name": "forward",
+            "filename": "/mnt/d/CodexAtWork/CS336/assignment2-systems-2025/cs336-basics/cs336_basics/model.py",
+            "line": 253
+          },
+          {
+            "name": "_call_impl",
+            "filename": "/home/yunz/.local/share/cs336/miniforge3/envs/CS336/lib/python3.11/site-packages/torch/nn/modules/module.py",
+            "line": 1762
+          }
+        ]
+      },
+      {
+        "mib": 48.0,
+        "frames": [
+          {
+            "name": "einsum",
+            "filename": "/home/yunz/.local/share/cs336/miniforge3/envs/CS336/lib/python3.11/site-packages/torch/functional.py",
+            "line": 422
+          },
+          {
+            "name": "einsum",
+            "filename": "/home/yunz/.local/share/cs336/miniforge3/envs/CS336/lib/python3.11/site-packages/einops/_backends.py",
+            "line": 291
+          },
+          {
+            "name": "einsum",
+            "filename": "/home/yunz/.local/share/cs336/miniforge3/envs/CS336/lib/python3.11/site-packages/einops/einops.py",
+            "line": 939
+          },
+          {
+            "name": "scaled_dot_product_attention",
+            "filename": "/mnt/d/CodexAtWork/CS336/assignment2-systems-2025/cs336-basics/cs336_basics/model.py",
+            "line": 425
+          },
+          {
+            "name": "forward",
+            "filename": "/mnt/d/CodexAtWork/CS336/assignment2-systems-2025/cs336-basics/cs336_basics/model.py",
+            "line": 516
+          },
+          {
+            "name": "_call_impl",
+            "filename": "/home/yunz/.local/share/cs336/miniforge3/envs/CS336/lib/python3.11/site-packages/torch/nn/modules/module.py",
+            "line": 1762
+          },
+          {
+            "name": "_wrapped_call_impl",
+            "filename": "/home/yunz/.local/share/cs336/miniforge3/envs/CS336/lib/python3.11/site-packages/torch/nn/modules/module.py",
+            "line": 1751
+          },
+          {
+            "name": "forward",
+            "filename": "/mnt/d/CodexAtWork/CS336/assignment2-systems-2025/cs336-basics/cs336_basics/model.py",
+            "line": 380
+          }
+        ]
+      },
+      {
+        "mib": 48.0,
+        "frames": [
+          {
+            "name": "scaled_dot_product_attention",
+            "filename": "/mnt/d/CodexAtWork/CS336/assignment2-systems-2025/cs336-basics/cs336_basics/model.py",
+            "line": 425
+          },
+          {
+            "name": "forward",
+            "filename": "/mnt/d/CodexAtWork/CS336/assignment2-systems-2025/cs336-basics/cs336_basics/model.py",
+            "line": 516
+          },
+          {
+            "name": "_call_impl",
+            "filename": "/home/yunz/.local/share/cs336/miniforge3/envs/CS336/lib/python3.11/site-packages/torch/nn/modules/module.py",
+            "line": 1762
+          },
+          {
+            "name": "_wrapped_call_impl",
+            "filename": "/home/yunz/.local/share/cs336/miniforge3/envs/CS336/lib/python3.11/site-packages/torch/nn/modules/module.py",
+            "line": 1751
+          },
+          {
+            "name": "forward",
+            "filename": "/mnt/d/CodexAtWork/CS336/assignment2-systems-2025/cs336-basics/cs336_basics/model.py",
+            "line": 380
+          },
+          {
+            "name": "_call_impl",
+            "filename": "/home/yunz/.local/share/cs336/miniforge3/envs/CS336/lib/python3.11/site-packages/torch/nn/modules/module.py",
+            "line": 1762
+          },
+          {
+            "name": "_wrapped_call_impl",
+            "filename": "/home/yunz/.local/share/cs336/miniforge3/envs/CS336/lib/python3.11/site-packages/torch/nn/modules/module.py",
+            "line": 1751
+          },
+          {
+            "name": "forward",
+            "filename": "/mnt/d/CodexAtWork/CS336/assignment2-systems-2025/cs336-basics/cs336_basics/model.py",
+            "line": 247
+          }
+        ]
+      },
+      {
+        "mib": 48.0,
+        "frames": [
+          {
+            "name": "scaled_dot_product_attention",
+            "filename": "/mnt/d/CodexAtWork/CS336/assignment2-systems-2025/cs336-basics/cs336_basics/model.py",
+            "line": 428
+          },
+          {
+            "name": "forward",
+            "filename": "/mnt/d/CodexAtWork/CS336/assignment2-systems-2025/cs336-basics/cs336_basics/model.py",
+            "line": 516
+          },
+          {
+            "name": "_call_impl",
+            "filename": "/home/yunz/.local/share/cs336/miniforge3/envs/CS336/lib/python3.11/site-packages/torch/nn/modules/module.py",
+            "line": 1762
+          },
+          {
+            "name": "_wrapped_call_impl",
+            "filename": "/home/yunz/.local/share/cs336/miniforge3/envs/CS336/lib/python3.11/site-packages/torch/nn/modules/module.py",
+            "line": 1751
+          },
+          {
+            "name": "forward",
+            "filename": "/mnt/d/CodexAtWork/CS336/assignment2-systems-2025/cs336-basics/cs336_basics/model.py",
+            "line": 380
+          },
+          {
+            "name": "_call_impl",
+            "filename": "/home/yunz/.local/share/cs336/miniforge3/envs/CS336/lib/python3.11/site-packages/torch/nn/modules/module.py",
+            "line": 1762
+          },
+          {
+            "name": "_wrapped_call_impl",
+            "filename": "/home/yunz/.local/share/cs336/miniforge3/envs/CS336/lib/python3.11/site-packages/torch/nn/modules/module.py",
+            "line": 1751
+          },
+          {
+            "name": "forward",
+            "filename": "/mnt/d/CodexAtWork/CS336/assignment2-systems-2025/cs336-basics/cs336_basics/model.py",
+            "line": 247
+          }
+        ]
+      },
+      {
+        "mib": 48.0,
+        "frames": [
+          {
+            "name": "softmax",
+            "filename": "/mnt/d/CodexAtWork/CS336/assignment2-systems-2025/cs336-basics/cs336_basics/nn_utils.py",
+            "line": 5
+          },
+          {
+            "name": "scaled_dot_product_attention",
+            "filename": "/mnt/d/CodexAtWork/CS336/assignment2-systems-2025/cs336-basics/cs336_basics/model.py",
+            "line": 430
+          },
+          {
+            "name": "forward",
+            "filename": "/mnt/d/CodexAtWork/CS336/assignment2-systems-2025/cs336-basics/cs336_basics/model.py",
+            "line": 516
+          },
+          {
+            "name": "_call_impl",
+            "filename": "/home/yunz/.local/share/cs336/miniforge3/envs/CS336/lib/python3.11/site-packages/torch/nn/modules/module.py",
+            "line": 1762
+          },
+          {
+            "name": "_wrapped_call_impl",
+            "filename": "/home/yunz/.local/share/cs336/miniforge3/envs/CS336/lib/python3.11/site-packages/torch/nn/modules/module.py",
+            "line": 1751
+          },
+          {
+            "name": "forward",
+            "filename": "/mnt/d/CodexAtWork/CS336/assignment2-systems-2025/cs336-basics/cs336_basics/model.py",
+            "line": 380
+          },
+          {
+            "name": "_call_impl",
+            "filename": "/home/yunz/.local/share/cs336/miniforge3/envs/CS336/lib/python3.11/site-packages/torch/nn/modules/module.py",
+            "line": 1762
+          },
+          {
+            "name": "_wrapped_call_impl",
+            "filename": "/home/yunz/.local/share/cs336/miniforge3/envs/CS336/lib/python3.11/site-packages/torch/nn/modules/module.py",
+            "line": 1751
+          }
+        ]
+      },
+      {
+        "mib": 48.0,
+        "frames": [
+          {
+            "name": "softmax",
+            "filename": "/mnt/d/CodexAtWork/CS336/assignment2-systems-2025/cs336-basics/cs336_basics/nn_utils.py",
+            "line": 6
+          },
+          {
+            "name": "scaled_dot_product_attention",
+            "filename": "/mnt/d/CodexAtWork/CS336/assignment2-systems-2025/cs336-basics/cs336_basics/model.py",
+            "line": 430
+          },
+          {
+            "name": "forward",
+            "filename": "/mnt/d/CodexAtWork/CS336/assignment2-systems-2025/cs336-basics/cs336_basics/model.py",
+            "line": 516
+          },
+          {
+            "name": "_call_impl",
+            "filename": "/home/yunz/.local/share/cs336/miniforge3/envs/CS336/lib/python3.11/site-packages/torch/nn/modules/module.py",
+            "line": 1762
+          },
+          {
+            "name": "_wrapped_call_impl",
+            "filename": "/home/yunz/.local/share/cs336/miniforge3/envs/CS336/lib/python3.11/site-packages/torch/nn/modules/module.py",
+            "line": 1751
+          },
+          {
+            "name": "forward",
+            "filename": "/mnt/d/CodexAtWork/CS336/assignment2-systems-2025/cs336-basics/cs336_basics/model.py",
+            "line": 380
+          },
+          {
+            "name": "_call_impl",
+            "filename": "/home/yunz/.local/share/cs336/miniforge3/envs/CS336/lib/python3.11/site-packages/torch/nn/modules/module.py",
+            "line": 1762
+          },
+          {
+            "name": "_wrapped_call_impl",
+            "filename": "/home/yunz/.local/share/cs336/miniforge3/envs/CS336/lib/python3.11/site-packages/torch/nn/modules/module.py",
+            "line": 1751
+          }
+        ]
+      }
+    ]
+  },
+  "small_ctx512_train_fp32_w2": {
+    "initial_active_gib": 1.476243019104004,
+    "peak_active_gib": 5.042756080627441,
+    "event_count": 10413,
+    "largest_allocations": [
+      {
+        "mib": 78.125,
+        "frames": [
+          {
+            "name": "einsum",
+            "filename": "/home/yunz/.local/share/cs336/miniforge3/envs/CS336/lib/python3.11/site-packages/torch/functional.py",
+            "line": 422
+          },
+          {
+            "name": "einsum",
+            "filename": "/home/yunz/.local/share/cs336/miniforge3/envs/CS336/lib/python3.11/site-packages/einops/_backends.py",
+            "line": 291
+          },
+          {
+            "name": "einsum",
+            "filename": "/home/yunz/.local/share/cs336/miniforge3/envs/CS336/lib/python3.11/site-packages/einops/einops.py",
+            "line": 939
+          },
+          {
+            "name": "forward",
+            "filename": "/mnt/d/CodexAtWork/CS336/assignment2-systems-2025/cs336-basics/cs336_basics/model.py",
+            "line": 41
+          },
+          {
+            "name": "_call_impl",
+            "filename": "/home/yunz/.local/share/cs336/miniforge3/envs/CS336/lib/python3.11/site-packages/torch/nn/modules/module.py",
+            "line": 1762
+          },
+          {
+            "name": "_wrapped_call_impl",
+            "filename": "/home/yunz/.local/share/cs336/miniforge3/envs/CS336/lib/python3.11/site-packages/torch/nn/modules/module.py",
+            "line": 1751
+          },
+          {
+            "name": "forward",
+            "filename": "/mnt/d/CodexAtWork/CS336/assignment2-systems-2025/cs336-basics/cs336_basics/model.py",
+            "line": 253
+          },
+          {
+            "name": "_call_impl",
+            "filename": "/home/yunz/.local/share/cs336/miniforge3/envs/CS336/lib/python3.11/site-packages/torch/nn/modules/module.py",
+            "line": 1762
+          }
+        ]
+      },
+      {
+        "mib": 78.125,
+        "frames": [
+          {
+            "name": "log_softmax",
+            "filename": "/mnt/d/CodexAtWork/CS336/assignment2-systems-2025/cs336-basics/cs336_basics/nn_utils.py",
+            "line": 11
+          },
+          {
+            "name": "cross_entropy",
+            "filename": "/mnt/d/CodexAtWork/CS336/assignment2-systems-2025/cs336-basics/cs336_basics/nn_utils.py",
+            "line": 16
+          },
+          {
+            "name": "step",
+            "filename": "/mnt/d/CodexAtWork/CS336/assignment2-systems-2025/cs336_systems/benchmark.py",
+            "line": 138
+          },
+          {
+            "name": "<listcomp>",
+            "filename": "/mnt/d/CodexAtWork/CS336/assignment2-systems-2025/cs336_systems/benchmark.py",
+            "line": 174
+          },
+          {
+            "name": "main",
+            "filename": "/mnt/d/CodexAtWork/CS336/assignment2-systems-2025/cs336_systems/benchmark.py",
+            "line": 174
+          },
+          {
+            "name": "<module>",
+            "filename": "/mnt/d/CodexAtWork/CS336/assignment2-systems-2025/cs336_systems/benchmark.py",
+            "line": 203
+          }
+        ]
+      },
+      {
+        "mib": 78.125,
+        "frames": [
+          {
+            "name": "log_softmax",
+            "filename": "/mnt/d/CodexAtWork/CS336/assignment2-systems-2025/cs336-basics/cs336_basics/nn_utils.py",
+            "line": 12
+          },
+          {
+            "name": "cross_entropy",
+            "filename": "/mnt/d/CodexAtWork/CS336/assignment2-systems-2025/cs336-basics/cs336_basics/nn_utils.py",
+            "line": 16
+          },
+          {
+            "name": "step",
+            "filename": "/mnt/d/CodexAtWork/CS336/assignment2-systems-2025/cs336_systems/benchmark.py",
+            "line": 138
+          },
+          {
+            "name": "<listcomp>",
+            "filename": "/mnt/d/CodexAtWork/CS336/assignment2-systems-2025/cs336_systems/benchmark.py",
+            "line": 174
+          },
+          {
+            "name": "main",
+            "filename": "/mnt/d/CodexAtWork/CS336/assignment2-systems-2025/cs336_systems/benchmark.py",
+            "line": 174
+          },
+          {
+            "name": "<module>",
+            "filename": "/mnt/d/CodexAtWork/CS336/assignment2-systems-2025/cs336_systems/benchmark.py",
+            "line": 203
+          }
+        ]
+      },
+      {
+        "mib": 78.125,
+        "frames": [
+          {
+            "name": "log_softmax",
+            "filename": "/mnt/d/CodexAtWork/CS336/assignment2-systems-2025/cs336-basics/cs336_basics/nn_utils.py",
+            "line": 12
+          },
+          {
+            "name": "cross_entropy",
+            "filename": "/mnt/d/CodexAtWork/CS336/assignment2-systems-2025/cs336-basics/cs336_basics/nn_utils.py",
+            "line": 16
+          },
+          {
+            "name": "step",
+            "filename": "/mnt/d/CodexAtWork/CS336/assignment2-systems-2025/cs336_systems/benchmark.py",
+            "line": 138
+          },
+          {
+            "name": "<listcomp>",
+            "filename": "/mnt/d/CodexAtWork/CS336/assignment2-systems-2025/cs336_systems/benchmark.py",
+            "line": 174
+          },
+          {
+            "name": "main",
+            "filename": "/mnt/d/CodexAtWork/CS336/assignment2-systems-2025/cs336_systems/benchmark.py",
+            "line": 174
+          },
+          {
+            "name": "<module>",
+            "filename": "/mnt/d/CodexAtWork/CS336/assignment2-systems-2025/cs336_systems/benchmark.py",
+            "line": 203
+          }
+        ]
+      },
+      {
+        "mib": 78.125,
+        "frames": [
+          {
+            "name": "cross_entropy",
+            "filename": "/mnt/d/CodexAtWork/CS336/assignment2-systems-2025/cs336-basics/cs336_basics/nn_utils.py",
+            "line": 16
+          },
+          {
+            "name": "step",
+            "filename": "/mnt/d/CodexAtWork/CS336/assignment2-systems-2025/cs336_systems/benchmark.py",
+            "line": 138
+          },
+          {
+            "name": "<listcomp>",
+            "filename": "/mnt/d/CodexAtWork/CS336/assignment2-systems-2025/cs336_systems/benchmark.py",
+            "line": 174
+          },
+          {
+            "name": "main",
+            "filename": "/mnt/d/CodexAtWork/CS336/assignment2-systems-2025/cs336_systems/benchmark.py",
+            "line": 174
+          },
+          {
+            "name": "<module>",
+            "filename": "/mnt/d/CodexAtWork/CS336/assignment2-systems-2025/cs336_systems/benchmark.py",
+            "line": 203
+          }
+        ]
+      },
+      {
+        "mib": 78.125,
+        "frames": []
+      }
+    ]
+  },
+  "small_ctx512_fp32": {
+    "initial_active_gib": 0.48861217498779297,
+    "peak_active_gib": 0.7057523727416992,
+    "event_count": 2470,
+    "largest_allocations": [
+      {
+        "mib": 78.125,
+        "frames": [
+          {
+            "name": "einsum",
+            "filename": "/home/yunz/.local/share/cs336/miniforge3/envs/CS336/lib/python3.11/site-packages/torch/functional.py",
+            "line": 422
+          },
+          {
+            "name": "einsum",
+            "filename": "/home/yunz/.local/share/cs336/miniforge3/envs/CS336/lib/python3.11/site-packages/einops/_backends.py",
+            "line": 291
+          },
+          {
+            "name": "einsum",
+            "filename": "/home/yunz/.local/share/cs336/miniforge3/envs/CS336/lib/python3.11/site-packages/einops/einops.py",
+            "line": 939
+          },
+          {
+            "name": "forward",
+            "filename": "/mnt/d/CodexAtWork/CS336/assignment2-systems-2025/cs336-basics/cs336_basics/model.py",
+            "line": 41
+          },
+          {
+            "name": "_call_impl",
+            "filename": "/home/yunz/.local/share/cs336/miniforge3/envs/CS336/lib/python3.11/site-packages/torch/nn/modules/module.py",
+            "line": 1762
+          },
+          {
+            "name": "_wrapped_call_impl",
+            "filename": "/home/yunz/.local/share/cs336/miniforge3/envs/CS336/lib/python3.11/site-packages/torch/nn/modules/module.py",
+            "line": 1751
+          },
+          {
+            "name": "forward",
+            "filename": "/mnt/d/CodexAtWork/CS336/assignment2-systems-2025/cs336-basics/cs336_basics/model.py",
+            "line": 253
+          },
+          {
+            "name": "_call_impl",
+            "filename": "/home/yunz/.local/share/cs336/miniforge3/envs/CS336/lib/python3.11/site-packages/torch/nn/modules/module.py",
+            "line": 1762
+          }
+        ]
+      },
+      {
+        "mib": 48.0,
+        "frames": [
+          {
+            "name": "einsum",
+            "filename": "/home/yunz/.local/share/cs336/miniforge3/envs/CS336/lib/python3.11/site-packages/torch/functional.py",
+            "line": 422
+          },
+          {
+            "name": "einsum",
+            "filename": "/home/yunz/.local/share/cs336/miniforge3/envs/CS336/lib/python3.11/site-packages/einops/_backends.py",
+            "line": 291
+          },
+          {
+            "name": "einsum",
+            "filename": "/home/yunz/.local/share/cs336/miniforge3/envs/CS336/lib/python3.11/site-packages/einops/einops.py",
+            "line": 939
+          },
+          {
+            "name": "scaled_dot_product_attention",
+            "filename": "/mnt/d/CodexAtWork/CS336/assignment2-systems-2025/cs336-basics/cs336_basics/model.py",
+            "line": 425
+          },
+          {
+            "name": "forward",
+            "filename": "/mnt/d/CodexAtWork/CS336/assignment2-systems-2025/cs336-basics/cs336_basics/model.py",
+            "line": 516
+          },
+          {
+            "name": "_call_impl",
+            "filename": "/home/yunz/.local/share/cs336/miniforge3/envs/CS336/lib/python3.11/site-packages/torch/nn/modules/module.py",
+            "line": 1762
+          },
+          {
+            "name": "_wrapped_call_impl",
+            "filename": "/home/yunz/.local/share/cs336/miniforge3/envs/CS336/lib/python3.11/site-packages/torch/nn/modules/module.py",
+            "line": 1751
+          },
+          {
+            "name": "forward",
+            "filename": "/mnt/d/CodexAtWork/CS336/assignment2-systems-2025/cs336-basics/cs336_basics/model.py",
+            "line": 380
+          }
+        ]
+      },
+      {
+        "mib": 48.0,
+        "frames": [
+          {
+            "name": "scaled_dot_product_attention",
+            "filename": "/mnt/d/CodexAtWork/CS336/assignment2-systems-2025/cs336-basics/cs336_basics/model.py",
+            "line": 425
+          },
+          {
+            "name": "forward",
+            "filename": "/mnt/d/CodexAtWork/CS336/assignment2-systems-2025/cs336-basics/cs336_basics/model.py",
+            "line": 516
+          },
+          {
+            "name": "_call_impl",
+            "filename": "/home/yunz/.local/share/cs336/miniforge3/envs/CS336/lib/python3.11/site-packages/torch/nn/modules/module.py",
+            "line": 1762
+          },
+          {
+            "name": "_wrapped_call_impl",
+            "filename": "/home/yunz/.local/share/cs336/miniforge3/envs/CS336/lib/python3.11/site-packages/torch/nn/modules/module.py",
+            "line": 1751
+          },
+          {
+            "name": "forward",
+            "filename": "/mnt/d/CodexAtWork/CS336/assignment2-systems-2025/cs336-basics/cs336_basics/model.py",
+            "line": 380
+          },
+          {
+            "name": "_call_impl",
+            "filename": "/home/yunz/.local/share/cs336/miniforge3/envs/CS336/lib/python3.11/site-packages/torch/nn/modules/module.py",
+            "line": 1762
+          },
+          {
+            "name": "_wrapped_call_impl",
+            "filename": "/home/yunz/.local/share/cs336/miniforge3/envs/CS336/lib/python3.11/site-packages/torch/nn/modules/module.py",
+            "line": 1751
+          },
+          {
+            "name": "forward",
+            "filename": "/mnt/d/CodexAtWork/CS336/assignment2-systems-2025/cs336-basics/cs336_basics/model.py",
+            "line": 247
+          }
+        ]
+      },
+      {
+        "mib": 48.0,
+        "frames": [
+          {
+            "name": "scaled_dot_product_attention",
+            "filename": "/mnt/d/CodexAtWork/CS336/assignment2-systems-2025/cs336-basics/cs336_basics/model.py",
+            "line": 428
+          },
+          {
+            "name": "forward",
+            "filename": "/mnt/d/CodexAtWork/CS336/assignment2-systems-2025/cs336-basics/cs336_basics/model.py",
+            "line": 516
+          },
+          {
+            "name": "_call_impl",
+            "filename": "/home/yunz/.local/share/cs336/miniforge3/envs/CS336/lib/python3.11/site-packages/torch/nn/modules/module.py",
+            "line": 1762
+          },
+          {
+            "name": "_wrapped_call_impl",
+            "filename": "/home/yunz/.local/share/cs336/miniforge3/envs/CS336/lib/python3.11/site-packages/torch/nn/modules/module.py",
+            "line": 1751
+          },
+          {
+            "name": "forward",
+            "filename": "/mnt/d/CodexAtWork/CS336/assignment2-systems-2025/cs336-basics/cs336_basics/model.py",
+            "line": 380
+          },
+          {
+            "name": "_call_impl",
+            "filename": "/home/yunz/.local/share/cs336/miniforge3/envs/CS336/lib/python3.11/site-packages/torch/nn/modules/module.py",
+            "line": 1762
+          },
+          {
+            "name": "_wrapped_call_impl",
+            "filename": "/home/yunz/.local/share/cs336/miniforge3/envs/CS336/lib/python3.11/site-packages/torch/nn/modules/module.py",
+            "line": 1751
+          },
+          {
+            "name": "forward",
+            "filename": "/mnt/d/CodexAtWork/CS336/assignment2-systems-2025/cs336-basics/cs336_basics/model.py",
+            "line": 247
+          }
+        ]
+      },
+      {
+        "mib": 48.0,
+        "frames": [
+          {
+            "name": "softmax",
+            "filename": "/mnt/d/CodexAtWork/CS336/assignment2-systems-2025/cs336-basics/cs336_basics/nn_utils.py",
+            "line": 5
+          },
+          {
+            "name": "scaled_dot_product_attention",
+            "filename": "/mnt/d/CodexAtWork/CS336/assignment2-systems-2025/cs336-basics/cs336_basics/model.py",
+            "line": 430
+          },
+          {
+            "name": "forward",
+            "filename": "/mnt/d/CodexAtWork/CS336/assignment2-systems-2025/cs336-basics/cs336_basics/model.py",
+            "line": 516
+          },
+          {
+            "name": "_call_impl",
+            "filename": "/home/yunz/.local/share/cs336/miniforge3/envs/CS336/lib/python3.11/site-packages/torch/nn/modules/module.py",
+            "line": 1762
+          },
+          {
+            "name": "_wrapped_call_impl",
+            "filename": "/home/yunz/.local/share/cs336/miniforge3/envs/CS336/lib/python3.11/site-packages/torch/nn/modules/module.py",
+            "line": 1751
+          },
+          {
+            "name": "forward",
+            "filename": "/mnt/d/CodexAtWork/CS336/assignment2-systems-2025/cs336-basics/cs336_basics/model.py",
+            "line": 380
+          },
+          {
+            "name": "_call_impl",
+            "filename": "/home/yunz/.local/share/cs336/miniforge3/envs/CS336/lib/python3.11/site-packages/torch/nn/modules/module.py",
+            "line": 1762
+          },
+          {
+            "name": "_wrapped_call_impl",
+            "filename": "/home/yunz/.local/share/cs336/miniforge3/envs/CS336/lib/python3.11/site-packages/torch/nn/modules/module.py",
+            "line": 1751
+          }
+        ]
+      },
+      {
+        "mib": 48.0,
+        "frames": [
+          {
+            "name": "softmax",
+            "filename": "/mnt/d/CodexAtWork/CS336/assignment2-systems-2025/cs336-basics/cs336_basics/nn_utils.py",
+            "line": 6
+          },
+          {
+            "name": "scaled_dot_product_attention",
+            "filename": "/mnt/d/CodexAtWork/CS336/assignment2-systems-2025/cs336-basics/cs336_basics/model.py",
+            "line": 430
+          },
+          {
+            "name": "forward",
+            "filename": "/mnt/d/CodexAtWork/CS336/assignment2-systems-2025/cs336-basics/cs336_basics/model.py",
+            "line": 516
+          },
+          {
+            "name": "_call_impl",
+            "filename": "/home/yunz/.local/share/cs336/miniforge3/envs/CS336/lib/python3.11/site-packages/torch/nn/modules/module.py",
+            "line": 1762
+          },
+          {
+            "name": "_wrapped_call_impl",
+            "filename": "/home/yunz/.local/share/cs336/miniforge3/envs/CS336/lib/python3.11/site-packages/torch/nn/modules/module.py",
+            "line": 1751
+          },
+          {
+            "name": "forward",
+            "filename": "/mnt/d/CodexAtWork/CS336/assignment2-systems-2025/cs336-basics/cs336_basics/model.py",
+            "line": 380
+          },
+          {
+            "name": "_call_impl",
+            "filename": "/home/yunz/.local/share/cs336/miniforge3/envs/CS336/lib/python3.11/site-packages/torch/nn/modules/module.py",
+            "line": 1762
+          },
+          {
+            "name": "_wrapped_call_impl",
+            "filename": "/home/yunz/.local/share/cs336/miniforge3/envs/CS336/lib/python3.11/site-packages/torch/nn/modules/module.py",
+            "line": 1751
+          }
+        ]
+      }
+    ]
+  }
+}

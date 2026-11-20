@@ -1,0 +1,10 @@
+{
+  "status": "passed",
+  "size": "small",
+  "context_length": 512,
+  "batch_size": 4,
+  "dtype": "bf16",
+  "grad_enabled": false,
+  "model_training": false,
+  "peak_allocated_mib": 903.1904296875
+}

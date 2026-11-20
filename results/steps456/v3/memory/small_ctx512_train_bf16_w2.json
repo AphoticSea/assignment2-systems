@@ -1,0 +1,107 @@
+{
+  "status": "passed",
+  "config": {
+    "vocab_size": 10000,
+    "context_length": 512,
+    "d_model": 768,
+    "d_ff": 3072,
+    "num_layers": 12,
+    "num_heads": 12,
+    "rope_theta": 10000.0
+  },
+  "mode": "train",
+  "dtype": "bf16",
+  "batch_size": 4,
+  "warmup": 2,
+  "iterations": 1,
+  "seed": 336,
+  "torch": "2.7.1+cu128",
+  "cuda_runtime": "12.8",
+  "gpu": "NVIDIA GeForce RTX 5070 Ti Laptop GPU",
+  "tf32": false,
+  "grad_enabled_in_forward": true,
+  "model_training": true,
+  "timing": "perf_counter plus CUDA synchronization; zero_grad excluded",
+  "is_full_assignment_sweep": false,
+  "protocol_version": 3,
+  "allocator_memory_fraction": 0.9,
+  "initialization_device": "cuda",
+  "loss_dtype": "fp32",
+  "benchmark_sha256": "9b3f22f53804fa4fb8c9d8c33a3eae722efbc6252468533cdefc021a9196c8b4",
+  "staff_model_sha256": "742a44953817caf29ad45aa15d4e8bd9272d74630dd66ec5625f6f5121fb12fe",
+  "git_head": "e495ed740080661ab084914674d3e10048778889",
+  "parameters": 128625408,
+  "minimum_resident_bytes": 2058006528,
+  "free_device_bytes": 11561598976,
+  "total_device_bytes": 12792037376,
+  "samples_ms": [
+    {
+      "forward": 46.296969000081845,
+      "loss_backward": 100.84015500001442,
+      "optimizer": 36.72302799998306,
+      "total": 184.02923000007831
+    }
+  ],
+  "summary_ms": {
+    "forward": {
+      "mean": 46.296969000081845,
+      "stdev": 0.0
+    },
+    "loss_backward": {
+      "mean": 100.84015500001442,
+      "stdev": 0.0
+    },
+    "optimizer": {
+      "mean": 36.72302799998306,
+      "stdev": 0.0
+    },
+    "total": {
+      "mean": 184.02923000007831,
+      "stdev": 0.0
+    }
+  },
+  "peak_allocated_mib": 4337.7119140625,
+  "peak_reserved_mib": 4556.0,
+  "memory_stages": [
+    {
+      "stage": "model_initialized",
+      "allocated_mib": 492.2294921875
+    },
+    {
+      "stage": "before_backward",
+      "allocated_mib": 3186.34716796875
+    },
+    {
+      "stage": "after_backward",
+      "allocated_mib": 1063.52197265625
+    },
+    {
+      "stage": "after_optimizer",
+      "allocated_mib": 2051.96533203125
+    },
+    {
+      "stage": "before_backward",
+      "allocated_mib": 4178.22802734375
+    },
+    {
+      "stage": "after_backward",
+      "allocated_mib": 2059.18408203125
+    },
+    {
+      "stage": "after_optimizer",
+      "allocated_mib": 2063.54345703125
+    },
+    {
+      "stage": "before_backward",
+      "allocated_mib": 4181.44677734375
+    },
+    {
+      "stage": "after_backward",
+      "allocated_mib": 2055.18408203125
+    },
+    {
+      "stage": "after_optimizer",
+      "allocated_mib": 2056.88720703125
+    }
+  ]
+}

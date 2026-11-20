@@ -1,12 +1,13 @@
 """Distinguish real no-grad inference from the training-forward benchmark."""
 import json
+import os
 from pathlib import Path
 import torch
 from cs336_basics.model import BasicsTransformerLM
 
 
 def main():
-    folder=Path("results/steps456/v3/inference")
+    folder=Path("results/steps456")/os.environ.get('CS336_RUN_NAME','v3')/'inference'
     folder.mkdir(parents=True,exist_ok=True)
     for dtype in ["fp32","bf16"]:
         torch.cuda.empty_cache()

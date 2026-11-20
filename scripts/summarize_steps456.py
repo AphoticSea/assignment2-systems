@@ -2,6 +2,7 @@
 import csv
 import html
 import json
+import os
 from pathlib import Path
 import pickle
 import re
@@ -12,7 +13,7 @@ import matplotlib.pyplot as plt
 import torch.cuda._memory_viz as memory_viz
 
 ROOT=Path(__file__).resolve().parents[1]
-OUT=ROOT/"results/steps456/v3"
+OUT=ROOT/'results/steps456'/os.environ.get('CS336_RUN_NAME','v3')
 PATTERN=re.compile(r"^(small|medium|large|xl|2\.7B)_ctx(\d+)_(forward-backward|forward|train)_(fp32|bf16)_w(\d+)$")
 
 
@@ -81,7 +82,7 @@ def snapshots():
         with path.open('rb') as f:
             snapshot=pickle.load(f)
         # Native PyTorch memory-viz HTML; snapshots are created by this task.
-        path.with_suffix('.html').write_text(memory_viz.trace_plot(snapshot,device=0),encoding='utf-8')
+        path.with_suffix('.html').write_text(memory_viz.trace_plot(snapshot),encoding='utf-8')
         events=snapshot['device_traces'][0]
         active_end=sum(block['size'] for segment in snapshot['segments'] for block in segment['blocks'] if block['state'].startswith('active'))
         net=sum(event['size']*(1 if event['action']=='alloc' else -1) for event in events if event['action'] in {'alloc','free_requested'})
@@ -96,7 +97,7 @@ def snapshots():
         ax.set(title=title,xlabel='Allocator event index (not wall time)',ylabel='Active block memory (GiB)');ax.grid(alpha=.2)
         allocations=sorted([e for e in events if e['action']=='alloc'],key=lambda e:e['size'],reverse=True)
         summary[path.stem]={'initial_active_gib':y[0],'peak_active_gib':max(y),'event_count':len(events),
-                           'largest_allocations':[{'mib':e['size']/1024**2,'frames':e.get('frames',[])[:5]} for e in allocations[:6]]}
+                           'largest_allocations':[{'mib':e['size']/1024**2,'frames':[f for f in e.get('frames',[]) if '/cs336' in f.get('filename','') and f.get('filename','').endswith('.py')][:8]} for e in allocations[:6]]}
     fig.tight_layout();fig.savefig(OUT/'memory-timelines.png',dpi=160);plt.close(fig)
     (OUT/'snapshot-analysis.json').write_text(json.dumps(summary,indent=2)+'\n')
     return summary
@@ -123,13 +124,17 @@ def main():
     snapshot_summary=snapshots()
     nsight=nsight_analysis()
     assert nsight,'No usable native Nsight CUDA/NVTX tables'
-    probe=json.loads((OUT.parent/'mixed_precision_probe.json').read_text())
+    probe=json.loads((OUT/'mixed_precision_probe.json').read_text())
     assert probe['small_model_numerics']['all_bf16_gradients_finite']
-    env=json.loads((ROOT/'results/environment.json').read_text())
+    env=json.loads((OUT/'environment.json').read_text())
     counts={g:{s:sum(r['status']==s for r in rows) for s in ['passed','oom','capacity_excluded']} for g,rows in groups.items()}
     (OUT/'completion.json').write_text(json.dumps({'counts':counts,'environment':env,'nsight_tables':len(nsight)},indent=2)+'\n')
     body='<h1>CS336 2025 Systems：步骤 4–6 实验报告</h1>'
-    body+='<p>GPU：RTX 5070 Ti Laptop（约12GB）。环境：CS336 / WSL2 Ubuntu 22.04 / Python '+env['python']+' / torch '+env['torch']+' / Triton '+env['triton']+'。</p>'
+    body+='<p>GPU：'+html.escape(env['gpu'])+'（'+f"{env['gpu_memory_mib']/1024:.2f}"+'GiB）。环境：CS336 / Python '+env['python']+' / torch '+env['torch']+' / Triton '+env['triton']+'。</p>'
+    body+='<p>本轮核心矩阵共194项：'+str(sum(c['passed'] for c in counts.values()))+'项实测通过，'+str(sum(c['oom'] for c in counts.values()))+'项真实allocator OOM，'+str(sum(c['capacity_excluded'] for c in counts.values()))+'项容量预检排除；另有2个no-grad推理snapshot与数值实验。所有实测使用90%的PyTorch allocator预算以避免WDDM显存回退；容量排除不是实际执行后的OOM。</p>'
+    representative=[next(r for r in groups['baseline'] if r['size']=='small' and r['context']==1024 and r['mode']=='forward-backward' and r['dtype']==dtype) for dtype in ['fp32','bf16']]
+    body+='<h2>关键实测结果</h2>'+table(['small / seq1024 / batch4','前向+loss+反向 ms','峰值 allocated GiB'],[[r['dtype'],f"{r['summary_ms']['total']['mean']:.2f}",f"{r['peak_allocated_mib']/1024:.2f}"] for r in representative])
+    body+='<p>同一配置下BF16相对FP32的加速比为 '+f"{representative[0]['summary_ms']['total']['mean']/representative[1]['summary_ms']['total']['mean']:.2f}"+'×。这是随机权重/数据的性能实验，未训练真实数据集；短序列和no-grad推理的BF16显存可能因类型转换/权重缓存而增大，不能假设固定减半。</p>'
     body+='<p>课程对应：§1.1.2–1.1.3 基线与预热；§1.1.4 Nsight；§1.1.5 混合精度；§1.1.6 显存。原始模型源码和课程测试保持不变。随机数据用于性能实验，不代表训练收敛结果。</p>'
     body+=table(['实验组','实际测得','真实 allocator OOM','容量预检排除'],[[g,*[counts[g][s] for s in ['passed','oom','capacity_excluded']]] for g in counts])
     body+='<p>本轮统一将 PyTorch allocator 限制为显存的90%，避免 Windows/WSL 显存回退。capacity_excluded 是根据 FP32 参数/梯度/Adam 状态和 meta 张量保留激活计算的下限，未实际运行；oom 是实际抛出的 allocator 异常。BF16 的容量预检使用更保守的全BF16符号激活下限，实际混合精度可能占用更多显存。</p>'
@@ -138,13 +143,18 @@ def main():
     body+='<p>预热消融使用全新进程，比较0、1、2次预热与基线5次预热。首次CUDA/cuBLAS/算子路径初始化和主机开销可显著抬高首个样本；不能把冷启动均值与稳态性能混在一起。</p>'
     body+='<details><summary>完整80项基线矩阵</summary>'+result_table(groups['baseline'])+'</details>'
     body+='<details><summary>完整30项预热消融</summary>'+result_table(groups['warmup'])+'</details>'
+    body+='<p>图中只绘制passed配置；缺失的组合在完整表中列明OOM或容量排除。没有显式预热的实验仍包含CUDA初始化和权重初始化，故比较的是“无模型预热”，并非完全冷启动整个进程。</p>'
     body+='<h2>5. Nsight Systems</h2><p>Nsight Systems CLI 2026.6.1；trace=cuda,nvtx；关闭CPU采样。cudaProfilerStart/Stop 排除模型初始化和预热；forward、loss_backward、optimizer，以及 attention_qk / attention_mask_softmax / attention_pv 由NVTX标注。原生 .nsys-rep、SQLite 与按range汇总的CSV均保留在 profiles/。NVTX嵌套range会重复包含同一个kernel，不能将所有range简单相加。</p>'
     body+='<p>有效NVTX kernel汇总表：'+str(len(nsight))+'。详细结论见 <a href="nsight-findings.html">Nsight瓶颈分析</a>。</p>'
     body+='<details><summary>全部profile配置与测量状态</summary>'+result_table(groups['profiles'])+'</details>'
     body+='<h2>6. 混合精度与显存</h2><img src="memory.png"><img src="memory-timelines.png">'
-    body+='<p>内存曲线来自真实 PyTorch allocator history。横轴为分配事件序号而非墙钟时间；原生 memory-viz HTML 和 .pickle 同时保留。图中训练步已经完成预热，因此Adam状态在初始基线内。PyTorch snapshot 不包含CUDA上下文等allocator之外的显存。</p>'
-    body+='<p>原题2.7B配置在随附实现中实为3,406,809,600个参数，FP32参数下限12.69GiB；FP32参数、梯度和两个Adam状态的下限50.76GiB，均未包含激活。因此该配置在本机被容量排除，§1.1.6的2.7B原题图与数值仍需大显存GPU完成。small的snapshot属于明确标记的本地适配实验。</p>'
+    body+='<p>内存曲线来自真实 PyTorch allocator history。横轴为分配事件序号而非墙钟时间；原生 memory-viz HTML 和 .pickle 同时保留。图中训练步已经完成预热，因此Adam状态在初始基线内。PyTorch snapshot 不包含CUDA上下文等allocator之外的显存。记录stack trace会产生明显开销，snapshot实验中的时间不用于无profiler性能比较。</p>'
+    exact=[r for r in groups['memory'] if r['size']=='2.7B']
+    target_passed=sum(r['status']=='passed' for r in exact)
+    body+='<p>原题2.7B配置在随附实现中实为3,406,809,600个参数，FP32参数下限12.69GiB；FP32参数、梯度和两个Adam状态的下限50.77GiB，均未包含激活。该配置本轮测得 '+str(target_passed)+'/12 个目标结果。'
+    body+=('原题目标尚未全部完成，需大显存GPU补测；small的snapshot属于明确标记的本地适配实验。' if target_passed<12 else '原题目标配置已测得，详见原始数据。')+'</p>'
     body+='<p>2.7B配置的单个FP32残差张量大小为 batch×seq×d_model×4 bytes；batch=4、d_model=2560时，长度128/256/512分别为5/10/20MiB。</p>'
+    body+='<p>本地small / seq512前向snapshot中，最大单次分配为78.125MiB，stack trace指向LM head输出的logits（4×512×10000×4 bytes）；多次48MiB分配指向Attention分数、mask和softmax（4×12×512×512×4 bytes）。源位置保存在snapshot-analysis.json与原始pickle中。这些是small适配实验的观察。</p>'
     body+='<details><summary>全部显存实验状态</summary>'+result_table(groups['memory'])+'</details>'
     body+='<h3>累加精度实验</h3>'+table(['设置','累加结果','相对真实值10的绝对误差'],[[name,v['value'],v['absolute_error']] for name,v in probe['accumulation'].items()])
     body+='<h3>Autocast dtype实测</h3><pre>'+html.escape(json.dumps(probe['autocast'],indent=2,ensure_ascii=False))+'</pre>'

@@ -2,15 +2,17 @@
 import csv
 import html
 import json
+import os
 from pathlib import Path
 import re
+import sqlite3
 
 import matplotlib
 matplotlib.use('Agg')
 import matplotlib.pyplot as plt
 
 ROOT=Path(__file__).resolve().parents[1]
-OUT=ROOT/'results/steps456/v3'
+OUT=ROOT/'results/steps456'/os.environ.get('CS336_RUN_NAME','v3')
 
 
 def read(path):
@@ -21,6 +23,27 @@ def table(headers,rows):
     return '<table><tr>'+''.join('<th>'+html.escape(str(x))+'</th>' for x in headers)+'</tr>'+''.join('<tr>'+''.join('<td>'+html.escape(str(x))+'</td>' for x in r)+'</tr>' for r in rows)+'</table>'
 
 
+def cross_thread_phases(path):
+    connection=sqlite3.connect(path)
+    ranges=connection.execute("SELECT start,end,text,globalTid FROM NVTX_EVENTS WHERE text IN ('measured','forward','loss_backward','optimizer','attention_qk','attention_mask_softmax','attention_pv') AND end IS NOT NULL").fetchall()
+    kernels=connection.execute('''SELECT k.end-k.start, s.value, r.start, k.globalPid
+        FROM CUPTI_ACTIVITY_KIND_KERNEL k
+        JOIN CUPTI_ACTIVITY_KIND_RUNTIME r ON k.correlationId=r.correlationId
+          AND k.globalPid=(r.globalTid & -16777216)
+        JOIN StringIds s ON s.id=k.demangledName''').fetchall()
+    expected=connection.execute('SELECT count(*) FROM CUPTI_ACTIVITY_KIND_KERNEL').fetchone()[0]
+    assert len(kernels)==expected, (path,len(kernels),expected)
+    grouped={}
+    for start,end,phase,tid in ranges:
+        pid=tid & -16777216
+        for duration,name,launch,kernel_pid in kernels:
+            if pid==kernel_pid and start<=launch<=end:
+                row=grouped.setdefault((phase,name),{'NVTX Range':phase,'Kernel Name':name,'Kern Inst':0,'Total Time (ns)':0})
+                row['Kern Inst']+=1;row['Total Time (ns)']+=duration
+    connection.close()
+    return list(grouped.values())
+
+
 def main():
     records=[]
     for path in sorted((OUT/'profiles').glob('*_cuda_gpu_kern_sum.csv')):
@@ -28,7 +51,8 @@ def main():
         summary=OUT/'profiles'/f'{key}.json'
         if not summary.exists() or json.loads(summary.read_text())['status']!='passed':continue
         kernels=read(path)
-        phases=read(OUT/'profiles'/f'{key}_nvtx_kern_sum.csv')
+        native_phases=read(OUT/'profiles'/f'{key}_nvtx_kern_sum.csv')
+        phases=cross_thread_phases(OUT/'profiles'/f'{key}.sqlite')
         projections=read(OUT/'profiles'/f'{key}_nvtx_gpu_proj_sum.csv')
         if not kernels or not phases:raise RuntimeError(f'No CUDA/NVTX data: {key}')
         phase_times={}
@@ -44,6 +68,8 @@ def main():
                     wall_ms=measured['summary_ms']['total']['mean'],phase_kernel_ms=phase_times,
                     phase_top_kernels=phase_kernel_top,
                     top_kernels=kernels[:10],projections=projections)
+        record['phase_attribution_method']='Runtime correlation ID + process-wide NVTX launch-time interval; includes autograd worker threads'
+        record['native_nvtx_rows']=native_phases
         base=OUT/'baseline'/f'{key}.json'
         record['baseline_wall_ms']=None
         if base.exists():
@@ -59,7 +85,9 @@ def main():
         labels=[]
         for k in top:
             name=k['Name']
-            if 'cutlass' in name:name='cutlass SIMT SGEMM'
+            if 'cutlass' in name:
+                match=re.search(r'cutlass_80_simt_sgemm_([^>]+)',name)
+                name='SGEMM '+match[1].replace('_align1','') if match else 'CUTLASS '+name[:45]
             elif 'magma_sgemm' in name:name='magma SGEMM'
             elif 'reduce' in name.lower():name='Reduction: '+name[:55]
             elif 'MulFunctor' in name:name='Elementwise multiply'
@@ -75,6 +103,7 @@ def main():
     fig.tight_layout();fig.savefig(OUT/'nsight-kernels.png',dpi=160);plt.close(fig)
     body='<h1>Nsight Systems：实际瓶颈与 Attention 优化空间</h1><p><a href="report.html">返回实验总报告</a></p><img src="nsight-kernels.png" style="width:100%">'
     body+='<p>下表的GPU时间是kernel duration之和；wall是包含CPU调度及CUDA同步的单步耗时。矩阵乘占比根据实际kernel名中的gemm/gemv/cutlass/mma识别，属于名称归类，不是硬件FLOP计数。嵌套NVTX range会重复包含kernel，不应将全部range相加。</p>'
+    body+='<p>归因修正：原生nvtx_kern_sum只匹配同线程range，PyTorch autograd工作线程发射的kernel会落到空range。这里用SQLite中的CUDA runtime correlation ID，将同进程所有线程的kernel按API发射时刻归入主线程forward/loss_backward/optimizer区间；每个kernel都验证存在唯一runtime匹配。原生CSV保留供核对。</p>'
     body+=table(['配置','profile wall ms','无profiler基线 ms','全部kernel ms','矩阵乘kernel时间占比'],[[r['case'],f"{r['wall_ms']:.2f}",f"{r['baseline_wall_ms']:.2f}" if r['baseline_wall_ms'] else '—',f"{r['kernel_time_ms']:.2f}",f"{r['matmul_kernel_time_pct']:.1f}%"] for r in records])
     for r in selected:
         body+='<h2>'+html.escape(r['case'])+'</h2>'

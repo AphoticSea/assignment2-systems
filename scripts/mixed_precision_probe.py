@@ -1,5 +1,6 @@
 """2025 A2 mixed_precision_accumulation and benchmarking_mixed_precision(a)."""
 import json
+import os
 from pathlib import Path
 
 import torch
@@ -79,7 +80,8 @@ def main():
         "first_q_proj_gradient_relative_l2":((selected.grad-reference_gradient).norm()/reference_gradient.norm()).item(),
         "all_bf16_gradients_finite":all(p.grad is not None and torch.isfinite(p.grad).all().item() for p in model.parameters()),
     }
-    target = Path("results/steps456/mixed_precision_probe.json")
+    target = Path("results/steps456")/os.environ.get('CS336_RUN_NAME','v3')/'mixed_precision_probe.json'
+    target.parent.mkdir(parents=True,exist_ok=True)
     target.write_text(json.dumps(result, indent=2) + "\n")
     print(json.dumps(result, indent=2))
 

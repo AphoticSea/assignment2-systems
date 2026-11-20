@@ -1,0 +1,29 @@
+{
+  "status": "passed",
+  "matrix_counts": {
+    "baseline": {
+      "capacity_excluded": 43,
+      "passed": 34,
+      "oom": 3
+    },
+    "warmup": {
+      "capacity_excluded": 12,
+      "passed": 18
+    },
+    "profiles": {
+      "capacity_excluded": 36,
+      "passed": 21,
+      "oom": 3
+    },
+    "memory": {
+      "capacity_excluded": 12,
+      "passed": 12
+    }
+  },
+  "unique_benchmark_hashes": [
+    "9b3f22f53804fa4fb8c9d8c33a3eae722efbc6252468533cdefc021a9196c8b4"
+  ],
+  "native_nsight_traces_with_valid_kernel_data": 21,
+  "staff_model_and_original_tests": "unchanged",
+  "mixed_precision_logit_and_selected_gradient_relative_l2_tolerance": 0.05
+}

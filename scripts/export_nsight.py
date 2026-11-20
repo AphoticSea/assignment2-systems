@@ -1,11 +1,13 @@
 """Export native Nsight reports; retain .nsys-rep and SQLite for inspection."""
 from pathlib import Path
 import json
+import os
+import shutil
 import subprocess
 
 ROOT = Path(__file__).resolve().parents[1]
-NSYS = Path.home()/".local/share/cs336/nsight/extracted/opt/nvidia/nsight-systems-cli/2026.6.1/target-linux-x64/nsys"
-FOLDER = ROOT/"results/steps456/v3/profiles"
+NSYS = Path(os.environ.get('NSYS_BIN') or shutil.which('nsys') or str(Path.home()/".local/share/cs336/nsight/extracted/opt/nvidia/nsight-systems-cli/2026.6.1/target-linux-x64/nsys"))
+FOLDER = ROOT/'results/steps456'/os.environ.get('CS336_RUN_NAME','v3')/'profiles'
 
 
 def main():

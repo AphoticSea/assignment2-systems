@@ -1,8 +1,10 @@
 """Run isolated, resumable experiments for 2025 A2 sections 1.1.3--1.1.6."""
 import argparse
+import hashlib
 import json
 import os
 import signal
+import shutil
 from pathlib import Path
 import subprocess
 import sys
@@ -13,8 +15,9 @@ from cs336_basics.model import BasicsTransformerLM
 from cs336_systems.benchmark import SIZES
 
 ROOT = Path(__file__).resolve().parents[1]
-OUT = ROOT / "results/steps456/v3"
-NSYS = Path.home() / ".local/share/cs336/nsight/extracted/opt/nvidia/nsight-systems-cli/2026.6.1/target-linux-x64/nsys"
+BENCHMARK_HASH=hashlib.sha256((ROOT/'cs336_systems/benchmark.py').read_bytes()).hexdigest()
+OUT = ROOT / "results/steps456" / os.environ.get("CS336_RUN_NAME", "v3")
+NSYS = Path(os.environ.get('NSYS_BIN') or shutil.which('nsys') or str(Path.home() / ".local/share/cs336/nsight/extracted/opt/nvidia/nsight-systems-cli/2026.6.1/target-linux-x64/nsys"))
 
 
 def counts():
@@ -33,7 +36,7 @@ def run_case(group, size, context, mode, dtype="fp32", warmup=5, iterations=10, 
     target = folder / (key + ".json")
     if target.exists():
         old = json.loads(target.read_text())
-        if old.get("status") in {"passed", "oom", "capacity_excluded"} and (not profile or old["status"] != "passed" or (folder / (key + ".nsys-rep")).exists()):
+        if old.get("gpu") == GPU_NAME and old.get('benchmark_sha256') == BENCHMARK_HASH and old.get("status") in {"passed", "oom", "capacity_excluded"} and (not profile or old["status"] != "passed" or (folder / (key + ".nsys-rep")).exists()):
             print("cached", group, key, old["status"], flush=True)
             return old
     params = PARAMETERS[size]
@@ -45,7 +48,7 @@ def run_case(group, size, context, mode, dtype="fp32", warmup=5, iterations=10, 
     lower = max(lower, forward_bound)
     if lower > FREE_BYTES:
         result = dict(status="capacity_excluded", size=size, context_length=context, mode=mode,
-                      dtype=dtype, parameters=params, minimum_resident_bytes=lower,
+                      dtype=dtype, gpu=GPU_NAME, benchmark_sha256=BENCHMARK_HASH, parameters=params, minimum_resident_bytes=lower,
                       available_reference_bytes=FREE_BYTES,
                       reason="Symbolic saved-activation / FP32 state lower bound exceeds 90% allocator budget; not an observed OOM")
         target.write_text(json.dumps(result, indent=2) + "\n")
@@ -83,10 +86,12 @@ def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("phase", choices=["baseline", "profiles", "memory"])
     args = parser.parse_args()
-    global PARAMETERS, FREE_BYTES, CAPACITY
+    global PARAMETERS, FREE_BYTES, CAPACITY, GPU_NAME
     PARAMETERS = counts()
-    smoke = json.loads((OUT.parent / "smoke.json").read_text())
-    FREE_BYTES = min(smoke["free_device_bytes"], int(smoke["total_device_bytes"]*0.90))
+    probe=json.loads(subprocess.check_output([sys.executable,'-c',
+        'import json,torch; f,t=torch.cuda.mem_get_info(); print(json.dumps(dict(free=f,total=t,gpu=torch.cuda.get_device_name())))'],text=True))
+    GPU_NAME=probe['gpu']
+    FREE_BYTES = min(probe['free'], int(probe['total']*0.90))
     CAPACITY = json.loads((OUT.parent / "capacity.json").read_text())
     print("Parameter counts:", PARAMETERS, flush=True)
     if args.phase == "baseline":

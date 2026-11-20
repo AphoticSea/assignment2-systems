@@ -1,0 +1,41 @@
+{
+  "counts": {
+    "baseline": {
+      "passed": 34,
+      "oom": 3,
+      "capacity_excluded": 43
+    },
+    "warmup": {
+      "passed": 18,
+      "oom": 0,
+      "capacity_excluded": 12
+    },
+    "profiles": {
+      "passed": 21,
+      "oom": 3,
+      "capacity_excluded": 36
+    },
+    "memory": {
+      "passed": 12,
+      "oom": 0,
+      "capacity_excluded": 12
+    }
+  },
+  "environment": {
+    "python": "3.11.18",
+    "platform": "Linux-6.6.114.1-microsoft-standard-WSL2-x86_64-with-glibc2.35",
+    "torch": "2.7.1+cu128",
+    "cuda_runtime": "12.8",
+    "triton": "3.3.1",
+    "gpu": "NVIDIA GeForce RTX 5070 Ti Laptop GPU",
+    "gpu_memory_mib": 12199.4375,
+    "compute_capability": [
+      12,
+      0
+    ],
+    "triton_vector_add": "passed",
+    "staff_model_forward_backward": "passed",
+    "smoke_loss": 6.945377349853516
+  },
+  "nsight_tables": 21
+}

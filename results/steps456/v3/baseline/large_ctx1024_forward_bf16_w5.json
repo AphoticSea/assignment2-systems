@@ -4,6 +4,8 @@
   "context_length": 1024,
   "mode": "forward",
   "dtype": "bf16",
+  "gpu": "NVIDIA GeForce RTX 5070 Ti Laptop GPU",
+  "benchmark_sha256": "9b3f22f53804fa4fb8c9d8c33a3eae722efbc6252468533cdefc021a9196c8b4",
   "parameters": 969411840,
   "minimum_resident_bytes": 29004067840,
   "available_reference_bytes": 11512833638,
