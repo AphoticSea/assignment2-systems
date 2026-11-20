@@ -1,0 +1,282 @@
+{
+  "small_ctx128_fp32": {
+    "parameters": 128625408,
+    "parameter_bytes": 514501632,
+    "saved_storage_bytes": 668850176,
+    "forward_lower_bound_bytes": 1183351808,
+    "note": "Unique saved storages + logits. BF16 uses a fully BF16 symbolic model as a conservative activation bound; actual mixed precision retains FP32 parameters and some FP32 activations."
+  },
+  "small_ctx128_bf16": {
+    "parameters": 128625408,
+    "parameter_bytes": 514501632,
+    "saved_storage_bytes": 374167552,
+    "forward_lower_bound_bytes": 888669184,
+    "note": "Unique saved storages + logits. BF16 uses a fully BF16 symbolic model as a conservative activation bound; actual mixed precision retains FP32 parameters and some FP32 activations."
+  },
+  "small_ctx256_fp32": {
+    "parameters": 128625408,
+    "parameter_bytes": 514501632,
+    "saved_storage_bytes": 1489088512,
+    "forward_lower_bound_bytes": 2003590144,
+    "note": "Unique saved storages + logits. BF16 uses a fully BF16 symbolic model as a conservative activation bound; actual mixed precision retains FP32 parameters and some FP32 activations."
+  },
+  "small_ctx256_bf16": {
+    "parameters": 128625408,
+    "parameter_bytes": 514501632,
+    "saved_storage_bytes": 824225792,
+    "forward_lower_bound_bytes": 1338727424,
+    "note": "Unique saved storages + logits. BF16 uses a fully BF16 symbolic model as a conservative activation bound; actual mixed precision retains FP32 parameters and some FP32 activations."
+  },
+  "small_ctx512_fp32": {
+    "parameters": 128625408,
+    "parameter_bytes": 514501632,
+    "saved_storage_bytes": 3583729664,
+    "forward_lower_bound_bytes": 4098231296,
+    "note": "Unique saved storages + logits. BF16 uses a fully BF16 symbolic model as a conservative activation bound; actual mixed precision retains FP32 parameters and some FP32 activations."
+  },
+  "small_ctx512_bf16": {
+    "parameters": 128625408,
+    "parameter_bytes": 514501632,
+    "saved_storage_bytes": 1952014336,
+    "forward_lower_bound_bytes": 2466515968,
+    "note": "Unique saved storages + logits. BF16 uses a fully BF16 symbolic model as a conservative activation bound; actual mixed precision retains FP32 parameters and some FP32 activations."
+  },
+  "small_ctx1024_fp32": {
+    "parameters": 128625408,
+    "parameter_bytes": 514501632,
+    "saved_storage_bytes": 9589669888,
+    "forward_lower_bound_bytes": 10104171520,
+    "note": "Unique saved storages + logits. BF16 uses a fully BF16 symbolic model as a conservative activation bound; actual mixed precision retains FP32 parameters and some FP32 activations."
+  },
+  "small_ctx1024_bf16": {
+    "parameters": 128625408,
+    "parameter_bytes": 514501632,
+    "saved_storage_bytes": 5118279680,
+    "forward_lower_bound_bytes": 5632781312,
+    "note": "Unique saved storages + logits. BF16 uses a fully BF16 symbolic model as a conservative activation bound; actual mixed precision retains FP32 parameters and some FP32 activations."
+  },
+  "medium_ctx128_fp32": {
+    "parameters": 423183360,
+    "parameter_bytes": 1692733440,
+    "saved_storage_bytes": 1742477312,
+    "forward_lower_bound_bytes": 3435210752,
+    "note": "Unique saved storages + logits. BF16 uses a fully BF16 symbolic model as a conservative activation bound; actual mixed precision retains FP32 parameters and some FP32 activations."
+  },
+  "medium_ctx128_bf16": {
+    "parameters": 423183360,
+    "parameter_bytes": 1692733440,
+    "saved_storage_bytes": 975034368,
+    "forward_lower_bound_bytes": 2667767808,
+    "note": "Unique saved storages + logits. BF16 uses a fully BF16 symbolic model as a conservative activation bound; actual mixed precision retains FP32 parameters and some FP32 activations."
+  },
+  "medium_ctx256_fp32": {
+    "parameters": 423183360,
+    "parameter_bytes": 1692733440,
+    "saved_storage_bytes": 3888394240,
+    "forward_lower_bound_bytes": 5581127680,
+    "note": "Unique saved storages + logits. BF16 uses a fully BF16 symbolic model as a conservative activation bound; actual mixed precision retains FP32 parameters and some FP32 activations."
+  },
+  "medium_ctx256_bf16": {
+    "parameters": 423183360,
+    "parameter_bytes": 1692733440,
+    "saved_storage_bytes": 2152181760,
+    "forward_lower_bound_bytes": 3844915200,
+    "note": "Unique saved storages + logits. BF16 uses a fully BF16 symbolic model as a conservative activation bound; actual mixed precision retains FP32 parameters and some FP32 activations."
+  },
+  "medium_ctx512_fp32": {
+    "parameters": 423183360,
+    "parameter_bytes": 1692733440,
+    "saved_storage_bytes": 9390546944,
+    "forward_lower_bound_bytes": 11083280384,
+    "note": "Unique saved storages + logits. BF16 uses a fully BF16 symbolic model as a conservative activation bound; actual mixed precision retains FP32 parameters and some FP32 activations."
+  },
+  "medium_ctx512_bf16": {
+    "parameters": 423183360,
+    "parameter_bytes": 1692733440,
+    "saved_storage_bytes": 5112815616,
+    "forward_lower_bound_bytes": 6805549056,
+    "note": "Unique saved storages + logits. BF16 uses a fully BF16 symbolic model as a conservative activation bound; actual mixed precision retains FP32 parameters and some FP32 activations."
+  },
+  "medium_ctx1024_fp32": {
+    "parameters": 423183360,
+    "parameter_bytes": 1692733440,
+    "saved_storage_bytes": 25236127744,
+    "forward_lower_bound_bytes": 26928861184,
+    "note": "Unique saved storages + logits. BF16 uses a fully BF16 symbolic model as a conservative activation bound; actual mixed precision retains FP32 parameters and some FP32 activations."
+  },
+  "medium_ctx1024_bf16": {
+    "parameters": 423183360,
+    "parameter_bytes": 1692733440,
+    "saved_storage_bytes": 13459439616,
+    "forward_lower_bound_bytes": 15152173056,
+    "note": "Unique saved storages + logits. BF16 uses a fully BF16 symbolic model as a conservative activation bound; actual mixed precision retains FP32 parameters and some FP32 activations."
+  },
+  "large_ctx128_fp32": {
+    "parameters": 969411840,
+    "parameter_bytes": 3877647360,
+    "saved_storage_bytes": 3244513280,
+    "forward_lower_bound_bytes": 7122160640,
+    "note": "Unique saved storages + logits. BF16 uses a fully BF16 symbolic model as a conservative activation bound; actual mixed precision retains FP32 parameters and some FP32 activations."
+  },
+  "large_ctx128_bf16": {
+    "parameters": 969411840,
+    "parameter_bytes": 3877647360,
+    "saved_storage_bytes": 1815468032,
+    "forward_lower_bound_bytes": 5693115392,
+    "note": "Unique saved storages + logits. BF16 uses a fully BF16 symbolic model as a conservative activation bound; actual mixed precision retains FP32 parameters and some FP32 activations."
+  },
+  "large_ctx256_fp32": {
+    "parameters": 969411840,
+    "parameter_bytes": 3877647360,
+    "saved_storage_bytes": 7245180928,
+    "forward_lower_bound_bytes": 11122828288,
+    "note": "Unique saved storages + logits. BF16 uses a fully BF16 symbolic model as a conservative activation bound; actual mixed precision retains FP32 parameters and some FP32 activations."
+  },
+  "large_ctx256_bf16": {
+    "parameters": 969411840,
+    "parameter_bytes": 3877647360,
+    "saved_storage_bytes": 4009603072,
+    "forward_lower_bound_bytes": 7887250432,
+    "note": "Unique saved storages + logits. BF16 uses a fully BF16 symbolic model as a conservative activation bound; actual mixed precision retains FP32 parameters and some FP32 activations."
+  },
+  "large_ctx512_fp32": {
+    "parameters": 969411840,
+    "parameter_bytes": 3877647360,
+    "saved_storage_bytes": 17514979328,
+    "forward_lower_bound_bytes": 21392626688,
+    "note": "Unique saved storages + logits. BF16 uses a fully BF16 symbolic model as a conservative activation bound; actual mixed precision retains FP32 parameters and some FP32 activations."
+  },
+  "large_ctx512_bf16": {
+    "parameters": 969411840,
+    "parameter_bytes": 3877647360,
+    "saved_storage_bytes": 9533874176,
+    "forward_lower_bound_bytes": 13411521536,
+    "note": "Unique saved storages + logits. BF16 uses a fully BF16 symbolic model as a conservative activation bound; actual mixed precision retains FP32 parameters and some FP32 activations."
+  },
+  "large_ctx1024_fp32": {
+    "parameters": 969411840,
+    "parameter_bytes": 3877647360,
+    "saved_storage_bytes": 47128428544,
+    "forward_lower_bound_bytes": 51006075904,
+    "note": "Unique saved storages + logits. BF16 uses a fully BF16 symbolic model as a conservative activation bound; actual mixed precision retains FP32 parameters and some FP32 activations."
+  },
+  "large_ctx1024_bf16": {
+    "parameters": 969411840,
+    "parameter_bytes": 3877647360,
+    "saved_storage_bytes": 25126420480,
+    "forward_lower_bound_bytes": 29004067840,
+    "note": "Unique saved storages + logits. BF16 uses a fully BF16 symbolic model as a conservative activation bound; actual mixed precision retains FP32 parameters and some FP32 activations."
+  },
+  "xl_ctx128_fp32": {
+    "parameters": 1998235200,
+    "parameter_bytes": 7992940800,
+    "saved_storage_bytes": 5389555712,
+    "forward_lower_bound_bytes": 13382496512,
+    "note": "Unique saved storages + logits. BF16 uses a fully BF16 symbolic model as a conservative activation bound; actual mixed precision retains FP32 parameters and some FP32 activations."
+  },
+  "xl_ctx128_bf16": {
+    "parameters": 1998235200,
+    "parameter_bytes": 7992940800,
+    "saved_storage_bytes": 3015579648,
+    "forward_lower_bound_bytes": 11008520448,
+    "note": "Unique saved storages + logits. BF16 uses a fully BF16 symbolic model as a conservative activation bound; actual mixed precision retains FP32 parameters and some FP32 activations."
+  },
+  "xl_ctx256_fp32": {
+    "parameters": 1998235200,
+    "parameter_bytes": 7992940800,
+    "saved_storage_bytes": 12038975488,
+    "forward_lower_bound_bytes": 20031916288,
+    "note": "Unique saved storages + logits. BF16 uses a fully BF16 symbolic model as a conservative activation bound; actual mixed precision retains FP32 parameters and some FP32 activations."
+  },
+  "xl_ctx256_bf16": {
+    "parameters": 1998235200,
+    "parameter_bytes": 7992940800,
+    "saved_storage_bytes": 6661877760,
+    "forward_lower_bound_bytes": 14654818560,
+    "note": "Unique saved storages + logits. BF16 uses a fully BF16 symbolic model as a conservative activation bound; actual mixed precision retains FP32 parameters and some FP32 activations."
+  },
+  "xl_ctx512_fp32": {
+    "parameters": 1998235200,
+    "parameter_bytes": 7992940800,
+    "saved_storage_bytes": 29117407232,
+    "forward_lower_bound_bytes": 37110348032,
+    "note": "Unique saved storages + logits. BF16 uses a fully BF16 symbolic model as a conservative activation bound; actual mixed precision retains FP32 parameters and some FP32 activations."
+  },
+  "xl_ctx512_bf16": {
+    "parameters": 1998235200,
+    "parameter_bytes": 7992940800,
+    "saved_storage_bytes": 15846629376,
+    "forward_lower_bound_bytes": 23839570176,
+    "note": "Unique saved storages + logits. BF16 uses a fully BF16 symbolic model as a conservative activation bound; actual mixed precision retains FP32 parameters and some FP32 activations."
+  },
+  "xl_ctx1024_fp32": {
+    "parameters": 1998235200,
+    "parameter_bytes": 7992940800,
+    "saved_storage_bytes": 78392639488,
+    "forward_lower_bound_bytes": 86385580288,
+    "note": "Unique saved storages + logits. BF16 uses a fully BF16 symbolic model as a conservative activation bound; actual mixed precision retains FP32 parameters and some FP32 activations."
+  },
+  "xl_ctx1024_bf16": {
+    "parameters": 1998235200,
+    "parameter_bytes": 7992940800,
+    "saved_storage_bytes": 41784754176,
+    "forward_lower_bound_bytes": 49777694976,
+    "note": "Unique saved storages + logits. BF16 uses a fully BF16 symbolic model as a conservative activation bound; actual mixed precision retains FP32 parameters and some FP32 activations."
+  },
+  "2.7B_ctx128_fp32": {
+    "parameters": 3406809600,
+    "parameter_bytes": 13627238400,
+    "saved_storage_bytes": 5615818752,
+    "forward_lower_bound_bytes": 19243057152,
+    "note": "Unique saved storages + logits. BF16 uses a fully BF16 symbolic model as a conservative activation bound; actual mixed precision retains FP32 parameters and some FP32 activations."
+  },
+  "2.7B_ctx128_bf16": {
+    "parameters": 3406809600,
+    "parameter_bytes": 13627238400,
+    "saved_storage_bytes": 3151124480,
+    "forward_lower_bound_bytes": 16778362880,
+    "note": "Unique saved storages + logits. BF16 uses a fully BF16 symbolic model as a conservative activation bound; actual mixed precision retains FP32 parameters and some FP32 activations."
+  },
+  "2.7B_ctx256_fp32": {
+    "parameters": 3406809600,
+    "parameter_bytes": 13627238400,
+    "saved_storage_bytes": 12306427904,
+    "forward_lower_bound_bytes": 25933666304,
+    "note": "Unique saved storages + logits. BF16 uses a fully BF16 symbolic model as a conservative activation bound; actual mixed precision retains FP32 parameters and some FP32 activations."
+  },
+  "2.7B_ctx256_bf16": {
+    "parameters": 3406809600,
+    "parameter_bytes": 13627238400,
+    "saved_storage_bytes": 6840168448,
+    "forward_lower_bound_bytes": 20467406848,
+    "note": "Unique saved storages + logits. BF16 uses a fully BF16 symbolic model as a conservative activation bound; actual mixed precision retains FP32 parameters and some FP32 activations."
+  },
+  "2.7B_ctx512_fp32": {
+    "parameters": 3406809600,
+    "parameter_bytes": 13627238400,
+    "saved_storage_bytes": 28912017408,
+    "forward_lower_bound_bytes": 42539255808,
+    "note": "Unique saved storages + logits. BF16 uses a fully BF16 symbolic model as a conservative activation bound; actual mixed precision retains FP32 parameters and some FP32 activations."
+  },
+  "2.7B_ctx512_bf16": {
+    "parameters": 3406809600,
+    "parameter_bytes": 13627238400,
+    "saved_storage_bytes": 15832014848,
+    "forward_lower_bound_bytes": 29459253248,
+    "note": "Unique saved storages + logits. BF16 uses a fully BF16 symbolic model as a conservative activation bound; actual mixed precision retains FP32 parameters and some FP32 activations."
+  },
+  "2.7B_ctx1024_fp32": {
+    "parameters": 3406809600,
+    "parameter_bytes": 13627238400,
+    "saved_storage_bytes": 75020681216,
+    "forward_lower_bound_bytes": 88647919616,
+    "note": "Unique saved storages + logits. BF16 uses a fully BF16 symbolic model as a conservative activation bound; actual mixed precision retains FP32 parameters and some FP32 activations."
+  },
+  "2.7B_ctx1024_bf16": {
+    "parameters": 3406809600,
+    "parameter_bytes": 13627238400,
+    "saved_storage_bytes": 40270741504,
+    "forward_lower_bound_bytes": 53897979904,
+    "note": "Unique saved storages + logits. BF16 uses a fully BF16 symbolic model as a conservative activation bound; actual mixed precision retains FP32 parameters and some FP32 activations."
+  }
+}

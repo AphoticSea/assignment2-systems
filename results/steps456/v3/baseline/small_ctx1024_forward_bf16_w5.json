@@ -1,0 +1,91 @@
+{
+  "status": "passed",
+  "config": {
+    "vocab_size": 10000,
+    "context_length": 1024,
+    "d_model": 768,
+    "d_ff": 3072,
+    "num_layers": 12,
+    "num_heads": 12,
+    "rope_theta": 10000.0
+  },
+  "mode": "forward",
+  "dtype": "bf16",
+  "batch_size": 4,
+  "warmup": 5,
+  "iterations": 10,
+  "seed": 336,
+  "torch": "2.7.1+cu128",
+  "cuda_runtime": "12.8",
+  "gpu": "NVIDIA GeForce RTX 5070 Ti Laptop GPU",
+  "tf32": false,
+  "grad_enabled_in_forward": true,
+  "model_training": true,
+  "timing": "perf_counter plus CUDA synchronization; zero_grad excluded",
+  "is_full_assignment_sweep": false,
+  "protocol_version": 3,
+  "allocator_memory_fraction": 0.9,
+  "initialization_device": "cuda",
+  "loss_dtype": "fp32",
+  "benchmark_sha256": "9b3f22f53804fa4fb8c9d8c33a3eae722efbc6252468533cdefc021a9196c8b4",
+  "staff_model_sha256": "742a44953817caf29ad45aa15d4e8bd9272d74630dd66ec5625f6f5121fb12fe",
+  "git_head": "e495ed740080661ab084914674d3e10048778889",
+  "parameters": 128625408,
+  "minimum_resident_bytes": 514501632,
+  "free_device_bytes": 11561598976,
+  "total_device_bytes": 12792037376,
+  "samples_ms": [
+    {
+      "forward": 98.74845199999527,
+      "total": 98.75105700001541
+    },
+    {
+      "forward": 97.81083699999726,
+      "total": 97.81216199999676
+    },
+    {
+      "forward": 97.85935300001825,
+      "total": 97.86063399999989
+    },
+    {
+      "forward": 105.2857079999967,
+      "total": 105.28970199999321
+    },
+    {
+      "forward": 118.23729799999683,
+      "total": 118.2411289999834
+    },
+    {
+      "forward": 116.48479299998371,
+      "total": 116.48718099999655
+    },
+    {
+      "forward": 104.60535100000357,
+      "total": 104.60645899999577
+    },
+    {
+      "forward": 99.94284900000139,
+      "total": 99.94419499997775
+    },
+    {
+      "forward": 98.4260380000137,
+      "total": 98.42760100002579
+    },
+    {
+      "forward": 98.3273209999993,
+      "total": 98.32864500000937
+    }
+  ],
+  "summary_ms": {
+    "forward": {
+      "mean": 103.5728000000006,
+      "stdev": 7.760770733160272
+    },
+    "total": {
+      "mean": 103.57487649999939,
+      "stdev": 7.761452307884884
+    }
+  },
+  "peak_allocated_mib": 7052.0107421875,
+  "peak_reserved_mib": 7140.0
+}

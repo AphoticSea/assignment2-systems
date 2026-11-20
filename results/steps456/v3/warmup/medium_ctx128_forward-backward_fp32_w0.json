@@ -1,0 +1,105 @@
+{
+  "status": "passed",
+  "config": {
+    "vocab_size": 10000,
+    "context_length": 128,
+    "d_model": 1024,
+    "d_ff": 4096,
+    "num_layers": 24,
+    "num_heads": 16,
+    "rope_theta": 10000.0
+  },
+  "mode": "forward-backward",
+  "dtype": "fp32",
+  "batch_size": 4,
+  "warmup": 0,
+  "iterations": 10,
+  "seed": 336,
+  "torch": "2.7.1+cu128",
+  "cuda_runtime": "12.8",
+  "gpu": "NVIDIA GeForce RTX 5070 Ti Laptop GPU",
+  "tf32": false,
+  "grad_enabled_in_forward": true,
+  "model_training": true,
+  "timing": "perf_counter plus CUDA synchronization; zero_grad excluded",
+  "is_full_assignment_sweep": false,
+  "protocol_version": 3,
+  "allocator_memory_fraction": 0.9,
+  "initialization_device": "cuda",
+  "loss_dtype": "fp32",
+  "benchmark_sha256": "9b3f22f53804fa4fb8c9d8c33a3eae722efbc6252468533cdefc021a9196c8b4",
+  "staff_model_sha256": "742a44953817caf29ad45aa15d4e8bd9272d74630dd66ec5625f6f5121fb12fe",
+  "git_head": "e495ed740080661ab084914674d3e10048778889",
+  "parameters": 423183360,
+  "minimum_resident_bytes": 3385466880,
+  "free_device_bytes": 11561598976,
+  "total_device_bytes": 12792037376,
+  "samples_ms": [
+    {
+      "forward": 594.1887469999756,
+      "loss_backward": 559.0226429999916,
+      "total": 1153.2165899999995
+    },
+    {
+      "forward": 49.21340399999963,
+      "loss_backward": 100.53672000003644,
+      "total": 149.7537280000074
+    },
+    {
+      "forward": 52.42215600003419,
+      "loss_backward": 99.99092099997142,
+      "total": 152.41446600003883
+    },
+    {
+      "forward": 52.100043999985246,
+      "loss_backward": 102.53416500000867,
+      "total": 154.63664099996777
+    },
+    {
+      "forward": 53.43011600001546,
+      "loss_backward": 102.5530389999858,
+      "total": 155.98735600002556
+    },
+    {
+      "forward": 52.58239199997661,
+      "loss_backward": 103.68128400000387,
+      "total": 156.26686699999937
+    },
+    {
+      "forward": 53.83239299999332,
+      "loss_backward": 109.87454500002514,
+      "total": 163.7124630000244
+    },
+    {
+      "forward": 65.65906200000882,
+      "loss_backward": 114.95776600003182,
+      "total": 180.62003000000004
+    },
+    {
+      "forward": 56.860210000024836,
+      "loss_backward": 105.61759899997014,
+      "total": 162.4800129999926
+    },
+    {
+      "forward": 55.049214000007396,
+      "loss_backward": 102.32160300000714,
+      "total": 157.3730530000148
+    }
+  ],
+  "summary_ms": {
+    "forward": {
+      "mean": 108.53377380000211,
+      "stdev": 170.69828688614007
+    },
+    "loss_backward": {
+      "mean": 150.1090285000032,
+      "stdev": 143.75040408804955
+    },
+    "total": {
+      "mean": 258.64612070000703,
+      "stdev": 314.43811832872154
+    }
+  },
+  "peak_allocated_mib": 3374.7021484375,
+  "peak_reserved_mib": 3526.0
+}

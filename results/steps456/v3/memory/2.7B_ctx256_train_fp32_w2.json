@@ -1,0 +1,11 @@
+{
+  "status": "capacity_excluded",
+  "size": "2.7B",
+  "context_length": 256,
+  "mode": "train",
+  "dtype": "fp32",
+  "parameters": 3406809600,
+  "minimum_resident_bytes": 54508953600,
+  "available_reference_bytes": 11512833638,
+  "reason": "Symbolic saved-activation / FP32 state lower bound exceeds 90% allocator budget; not an observed OOM"
+}

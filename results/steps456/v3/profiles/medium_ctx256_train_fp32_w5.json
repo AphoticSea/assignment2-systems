@@ -1,0 +1,65 @@
+{
+  "status": "passed",
+  "config": {
+    "vocab_size": 10000,
+    "context_length": 256,
+    "d_model": 1024,
+    "d_ff": 4096,
+    "num_layers": 24,
+    "num_heads": 16,
+    "rope_theta": 10000.0
+  },
+  "mode": "train",
+  "dtype": "fp32",
+  "batch_size": 4,
+  "warmup": 5,
+  "iterations": 1,
+  "seed": 336,
+  "torch": "2.7.1+cu128",
+  "cuda_runtime": "12.8",
+  "gpu": "NVIDIA GeForce RTX 5070 Ti Laptop GPU",
+  "tf32": false,
+  "grad_enabled_in_forward": true,
+  "model_training": true,
+  "timing": "perf_counter plus CUDA synchronization; zero_grad excluded",
+  "is_full_assignment_sweep": false,
+  "protocol_version": 3,
+  "allocator_memory_fraction": 0.9,
+  "initialization_device": "cuda",
+  "loss_dtype": "fp32",
+  "benchmark_sha256": "9b3f22f53804fa4fb8c9d8c33a3eae722efbc6252468533cdefc021a9196c8b4",
+  "staff_model_sha256": "742a44953817caf29ad45aa15d4e8bd9272d74630dd66ec5625f6f5121fb12fe",
+  "git_head": "e495ed740080661ab084914674d3e10048778889",
+  "parameters": 423183360,
+  "minimum_resident_bytes": 6770933760,
+  "free_device_bytes": 11549016064,
+  "total_device_bytes": 12792037376,
+  "samples_ms": [
+    {
+      "forward": 90.20359900000585,
+      "loss_backward": 183.6138139999548,
+      "optimizer": 93.47549000005984,
+      "total": 367.2966299999416
+    }
+  ],
+  "summary_ms": {
+    "forward": {
+      "mean": 90.20359900000585,
+      "stdev": 0.0
+    },
+    "loss_backward": {
+      "mean": 183.6138139999548,
+      "stdev": 0.0
+    },
+    "optimizer": {
+      "mean": 93.47549000005984,
+      "stdev": 0.0
+    },
+    "total": {
+      "mean": 367.2966299999416,
+      "stdev": 0.0
+    }
+  },
+  "peak_allocated_mib": 8694.11328125,
+  "peak_reserved_mib": 8798.0
+}

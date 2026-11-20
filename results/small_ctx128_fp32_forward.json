@@ -1,0 +1,84 @@
+{
+  "status": "passed",
+  "config": {
+    "vocab_size": 10000,
+    "context_length": 128,
+    "d_model": 768,
+    "d_ff": 3072,
+    "num_layers": 12,
+    "num_heads": 12,
+    "rope_theta": 10000.0
+  },
+  "mode": "forward",
+  "dtype": "fp32",
+  "batch_size": 4,
+  "warmup": 5,
+  "iterations": 10,
+  "seed": 336,
+  "torch": "2.7.1+cu128",
+  "cuda_runtime": "12.8",
+  "gpu": "NVIDIA GeForce RTX 5070 Ti Laptop GPU",
+  "tf32": false,
+  "grad_enabled_in_forward": true,
+  "model_training": true,
+  "timing": "perf_counter plus CUDA synchronization; zero_grad excluded",
+  "is_full_assignment_sweep": false,
+  "benchmark_sha256": "270b2142da06b0eb0824b4d74766463eebf00b4e83d8246f3c942ec1ed76dc1e",
+  "staff_model_sha256": "742a44953817caf29ad45aa15d4e8bd9272d74630dd66ec5625f6f5121fb12fe",
+  "git_head": "e495ed740080661ab084914674d3e10048778889",
+  "parameters": 128625408,
+  "samples_ms": [
+    {
+      "forward": 26.40392700004668,
+      "total": 26.406744000041726
+    },
+    {
+      "forward": 24.322648000065783,
+      "total": 24.326242000029197
+    },
+    {
+      "forward": 24.80906400001004,
+      "total": 24.813677999986794
+    },
+    {
+      "forward": 26.10583399996358,
+      "total": 26.107105999926716
+    },
+    {
+      "forward": 25.305855000056,
+      "total": 25.30970200007232
+    },
+    {
+      "forward": 25.538378999954148,
+      "total": 25.539818999959607
+    },
+    {
+      "forward": 25.604514999940875,
+      "total": 25.607121000007282
+    },
+    {
+      "forward": 26.261387999966246,
+      "total": 26.264447000016844
+    },
+    {
+      "forward": 25.32646700001351,
+      "total": 25.328463999926498
+    },
+    {
+      "forward": 24.57717100003265,
+      "total": 24.579094000046098
+    }
+  ],
+  "summary_ms": {
+    "forward": {
+      "mean": 25.42552480000495,
+      "stdev": 0.7073998520579503
+    },
+    "total": {
+      "mean": 25.42824170000131,
+      "stdev": 0.707040862943982
+    }
+  },
+  "peak_allocated_mib": 1164.5673828125,
+  "peak_reserved_mib": 1186.0
+}

@@ -1,0 +1,91 @@
+{
+  "status": "passed",
+  "config": {
+    "vocab_size": 10000,
+    "context_length": 256,
+    "d_model": 1024,
+    "d_ff": 4096,
+    "num_layers": 24,
+    "num_heads": 16,
+    "rope_theta": 10000.0
+  },
+  "mode": "forward",
+  "dtype": "bf16",
+  "batch_size": 4,
+  "warmup": 5,
+  "iterations": 10,
+  "seed": 336,
+  "torch": "2.7.1+cu128",
+  "cuda_runtime": "12.8",
+  "gpu": "NVIDIA GeForce RTX 5070 Ti Laptop GPU",
+  "tf32": false,
+  "grad_enabled_in_forward": true,
+  "model_training": true,
+  "timing": "perf_counter plus CUDA synchronization; zero_grad excluded",
+  "is_full_assignment_sweep": false,
+  "protocol_version": 3,
+  "allocator_memory_fraction": 0.9,
+  "initialization_device": "cuda",
+  "loss_dtype": "fp32",
+  "benchmark_sha256": "9b3f22f53804fa4fb8c9d8c33a3eae722efbc6252468533cdefc021a9196c8b4",
+  "staff_model_sha256": "742a44953817caf29ad45aa15d4e8bd9272d74630dd66ec5625f6f5121fb12fe",
+  "git_head": "e495ed740080661ab084914674d3e10048778889",
+  "parameters": 423183360,
+  "minimum_resident_bytes": 1692733440,
+  "free_device_bytes": 11561598976,
+  "total_device_bytes": 12792037376,
+  "samples_ms": [
+    {
+      "forward": 50.83192800000802,
+      "total": 50.834186000003
+    },
+    {
+      "forward": 50.366518000004135,
+      "total": 50.369022000012365
+    },
+    {
+      "forward": 47.321525000000975,
+      "total": 47.322997999998506
+    },
+    {
+      "forward": 46.74643500001707,
+      "total": 46.74741700000595
+    },
+    {
+      "forward": 46.93556300000523,
+      "total": 46.93663600002651
+    },
+    {
+      "forward": 51.01311199999259,
+      "total": 51.01424099999008
+    },
+    {
+      "forward": 50.878219999987095,
+      "total": 50.88168200001064
+    },
+    {
+      "forward": 49.753288000005114,
+      "total": 49.75433000001317
+    },
+    {
+      "forward": 51.096123000007765,
+      "total": 51.097077999997964
+    },
+    {
+      "forward": 51.01249300000177,
+      "total": 51.013479999994615
+    }
+  ],
+  "summary_ms": {
+    "forward": {
+      "mean": 49.595520500002976,
+      "stdev": 1.8386665293105753
+    },
+    "total": {
+      "mean": 49.59710700000528,
+      "stdev": 1.8389542394587057
+    }
+  },
+  "peak_allocated_mib": 4807.5859375,
+  "peak_reserved_mib": 4814.0
+}
