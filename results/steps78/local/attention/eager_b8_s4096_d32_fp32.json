@@ -1,0 +1,643 @@
+{
+  "status": "passed",
+  "method": "eager",
+  "seq_len": 4096,
+  "head_dim": 32,
+  "dtype": "torch.float32",
+  "batch_size": 8,
+  "is_causal": false,
+  "backward_measured": true,
+  "warmup": 5,
+  "iterations": 100,
+  "torch": "2.7.1+cu128",
+  "triton": "3.3.1",
+  "gpu": "NVIDIA GeForce RTX 5070 Ti Laptop GPU",
+  "tf32": false,
+  "allocator_memory_fraction": 0.9,
+  "benchmark_sha256": "7fab491fa60dee60335019f50ccb7180d02f3d7ba910046c9b209f58cd747868",
+  "flash_sha256": "ec66835677bbcf0b360988221439250121ce841b0bd49b50ed472344995ab4ab",
+  "first_call_including_compile_seconds": 0.059426014000003136,
+  "numerics": {
+    "sampled_rows": 8,
+    "max_absolute_error": 1.825392246246338e-07,
+    "relative_l2": 1.1887850632774644e-06
+  },
+  "samples_ms": [
+    {
+      "forward": 6.848572999999192,
+      "backward": 12.82572199999521,
+      "total": 19.6742949999944,
+      "allocated_before_backward_mib": 548.25
+    },
+    {
+      "forward": 6.807214999994926,
+      "backward": 12.806709000003025,
+      "total": 19.61392399999795,
+      "allocated_before_backward_mib": 548.25
+    },
+    {
+      "forward": 6.804830000000095,
+      "backward": 12.842466000002162,
+      "total": 19.647296000002257,
+      "allocated_before_backward_mib": 548.25
+    },
+    {
+      "forward": 6.854784999994479,
+      "backward": 12.935100999996507,
+      "total": 19.789885999990986,
+      "allocated_before_backward_mib": 548.25
+    },
+    {
+      "forward": 6.828064000004019,
+      "backward": 12.841272999999376,
+      "total": 19.669337000003395,
+      "allocated_before_backward_mib": 548.25
+    },
+    {
+      "forward": 6.937260999997363,
+      "backward": 12.893601000001809,
+      "total": 19.830861999999172,
+      "allocated_before_backward_mib": 548.25
+    },
+    {
+      "forward": 6.839464999998768,
+      "backward": 12.857355000001292,
+      "total": 19.69682000000006,
+      "allocated_before_backward_mib": 548.25
+    },
+    {
+      "forward": 6.810089999994773,
+      "backward": 12.832216000006724,
+      "total": 19.642306000001497,
+      "allocated_before_backward_mib": 548.25
+    },
+    {
+      "forward": 6.8445949999969,
+      "backward": 12.866451000000723,
+      "total": 19.711045999997623,
+      "allocated_before_backward_mib": 548.25
+    },
+    {
+      "forward": 6.863099999996791,
+      "backward": 12.866540999993958,
+      "total": 19.72964099999075,
+      "allocated_before_backward_mib": 548.25
+    },
+    {
+      "forward": 6.841709999996226,
+      "backward": 12.885226000001637,
+      "total": 19.726935999997863,
+      "allocated_before_backward_mib": 548.25
+    },
+    {
+      "forward": 6.826079999996182,
+      "backward": 12.79604799999845,
+      "total": 19.622127999994632,
+      "allocated_before_backward_mib": 548.25
+    },
+    {
+      "forward": 6.77050499999865,
+      "backward": 12.884565000000237,
+      "total": 19.655069999998886,
+      "allocated_before_backward_mib": 548.25
+    },
+    {
+      "forward": 6.825990999999476,
+      "backward": 12.88073799999978,
+      "total": 19.706728999999257,
+      "allocated_before_backward_mib": 548.25
+    },
+    {
+      "forward": 6.835989000002485,
+      "backward": 12.844979999997008,
+      "total": 19.680968999999493,
+      "allocated_before_backward_mib": 548.25
+    },
+    {
+      "forward": 6.840416999999377,
+      "backward": 12.815893999999162,
+      "total": 19.65631099999854,
+      "allocated_before_backward_mib": 548.25
+    },
+    {
+      "forward": 6.8401770000008355,
+      "backward": 12.840461999999775,
+      "total": 19.68063900000061,
+      "allocated_before_backward_mib": 548.25
+    },
+    {
+      "forward": 6.804739999999754,
+      "backward": 12.839540000001648,
+      "total": 19.6442800000014,
+      "allocated_before_backward_mib": 548.25
+    },
+    {
+      "forward": 6.882567000005224,
+      "backward": 13.051070999999581,
+      "total": 19.933638000004805,
+      "allocated_before_backward_mib": 548.25
+    },
+    {
+      "forward": 6.863651000003301,
+      "backward": 12.794423999999083,
+      "total": 19.658075000002384,
+      "allocated_before_backward_mib": 548.25
+    },
+    {
+      "forward": 6.763882000001331,
+      "backward": 12.750500999999304,
+      "total": 19.514383000000635,
+      "allocated_before_backward_mib": 548.25
+    },
+    {
+      "forward": 6.760264999996934,
+      "backward": 12.871621000002165,
+      "total": 19.6318859999991,
+      "allocated_before_backward_mib": 548.25
+    },
+    {
+      "forward": 6.8181559999942465,
+      "backward": 12.820042999997838,
+      "total": 19.638198999992085,
+      "allocated_before_backward_mib": 548.25
+    },
+    {
+      "forward": 6.795762999999511,
+      "backward": 12.857484000001307,
+      "total": 19.653247000000817,
+      "allocated_before_backward_mib": 548.25
+    },
+    {
+      "forward": 6.757750000005558,
+      "backward": 12.744790999995814,
+      "total": 19.502541000001372,
+      "allocated_before_backward_mib": 548.25
+    },
+    {
+      "forward": 6.790041999998664,
+      "backward": 12.717508000001487,
+      "total": 19.50755000000015,
+      "allocated_before_backward_mib": 548.25
+    },
+    {
+      "forward": 6.755976999997415,
+      "backward": 12.933428000003744,
+      "total": 19.68940500000116,
+      "allocated_before_backward_mib": 548.25
+    },
+    {
+      "forward": 6.740528000001689,
+      "backward": 12.86771399999509,
+      "total": 19.60824199999678,
+      "allocated_before_backward_mib": 548.25
+    },
+    {
+      "forward": 6.799379000000272,
+      "backward": 12.746784000000844,
+      "total": 19.546163000001116,
+      "allocated_before_backward_mib": 548.25
+    },
+    {
+      "forward": 6.815148999997689,
+      "backward": 12.776680999998291,
+      "total": 19.59182999999598,
+      "allocated_before_backward_mib": 548.25
+    },
+    {
+      "forward": 6.730568999998354,
+      "backward": 12.69160900000088,
+      "total": 19.422177999999235,
+      "allocated_before_backward_mib": 548.25
+    },
+    {
+      "forward": 6.731249999994304,
+      "backward": 12.669627999997601,
+      "total": 19.400877999991906,
+      "allocated_before_backward_mib": 548.25
+    },
+    {
+      "forward": 6.775584999999751,
+      "backward": 12.93636399999798,
+      "total": 19.71194899999773,
+      "allocated_before_backward_mib": 548.25
+    },
+    {
+      "forward": 7.0913429999990285,
+      "backward": 13.699541000001147,
+      "total": 20.790884000000176,
+      "allocated_before_backward_mib": 548.25
+    },
+    {
+      "forward": 7.840993999998602,
+      "backward": 15.344478000002937,
+      "total": 23.18547200000154,
+      "allocated_before_backward_mib": 548.25
+    },
+    {
+      "forward": 8.736261999999329,
+      "backward": 16.34764099999586,
+      "total": 25.08390299999519,
+      "allocated_before_backward_mib": 548.25
+    },
+    {
+      "forward": 8.869814000000531,
+      "backward": 16.942268000001093,
+      "total": 25.812082000001624,
+      "allocated_before_backward_mib": 548.25
+    },
+    {
+      "forward": 9.158833000000755,
+      "backward": 17.079928000001132,
+      "total": 26.238761000001887,
+      "allocated_before_backward_mib": 548.25
+    },
+    {
+      "forward": 8.842182000002197,
+      "backward": 16.56075399999679,
+      "total": 25.402935999998988,
+      "allocated_before_backward_mib": 548.25
+    },
+    {
+      "forward": 8.853212999994753,
+      "backward": 16.53689900000188,
+      "total": 25.390111999996634,
+      "allocated_before_backward_mib": 548.25
+    },
+    {
+      "forward": 8.911863999998104,
+      "backward": 16.29721399999795,
+      "total": 25.209077999996055,
+      "allocated_before_backward_mib": 548.25
+    },
+    {
+      "forward": 8.431674000000555,
+      "backward": 15.829396999997414,
+      "total": 24.26107099999797,
+      "allocated_before_backward_mib": 548.25
+    },
+    {
+      "forward": 8.479485000002285,
+      "backward": 15.891396000000668,
+      "total": 24.370881000002953,
+      "allocated_before_backward_mib": 548.25
+    },
+    {
+      "forward": 8.736061000000461,
+      "backward": 16.657248000001346,
+      "total": 25.393309000001807,
+      "allocated_before_backward_mib": 548.25
+    },
+    {
+      "forward": 8.371130000000448,
+      "backward": 15.784211999999798,
+      "total": 24.155342000000246,
+      "allocated_before_backward_mib": 548.25
+    },
+    {
+      "forward": 8.541432000001237,
+      "backward": 17.162513999998907,
+      "total": 25.703946000000144,
+      "allocated_before_backward_mib": 548.25
+    },
+    {
+      "forward": 9.104358999998396,
+      "backward": 16.94051599999824,
+      "total": 26.044874999996637,
+      "allocated_before_backward_mib": 548.25
+    },
+    {
+      "forward": 9.023626000001173,
+      "backward": 16.3809650000033,
+      "total": 25.404591000004473,
+      "allocated_before_backward_mib": 548.25
+    },
+    {
+      "forward": 8.557011000000614,
+      "backward": 15.76140899999956,
+      "total": 24.318420000000174,
+      "allocated_before_backward_mib": 548.25
+    },
+    {
+      "forward": 7.990708000001234,
+      "backward": 14.860631000004787,
+      "total": 22.85133900000602,
+      "allocated_before_backward_mib": 548.25
+    },
+    {
+      "forward": 7.850673000000086,
+      "backward": 14.341506000000948,
+      "total": 22.192179000001033,
+      "allocated_before_backward_mib": 548.25
+    },
+    {
+      "forward": 7.561153999994019,
+      "backward": 13.863460999999688,
+      "total": 21.424614999993707,
+      "allocated_before_backward_mib": 548.25
+    },
+    {
+      "forward": 7.327469999999892,
+      "backward": 13.56745000000359,
+      "total": 20.89492000000348,
+      "allocated_before_backward_mib": 548.25
+    },
+    {
+      "forward": 7.282334999999307,
+      "backward": 13.467750000003775,
+      "total": 20.750085000003082,
+      "allocated_before_backward_mib": 548.25
+    },
+    {
+      "forward": 7.135095999998953,
+      "backward": 13.259344000005058,
+      "total": 20.39444000000401,
+      "allocated_before_backward_mib": 548.25
+    },
+    {
+      "forward": 6.990231999999708,
+      "backward": 13.21045400000287,
+      "total": 20.200686000002577,
+      "allocated_before_backward_mib": 548.25
+    },
+    {
+      "forward": 6.959964000003538,
+      "backward": 13.3533039999989,
+      "total": 20.313268000002438,
+      "allocated_before_backward_mib": 548.25
+    },
+    {
+      "forward": 6.884860999996079,
+      "backward": 13.050700000000859,
+      "total": 19.935560999996937,
+      "allocated_before_backward_mib": 548.25
+    },
+    {
+      "forward": 6.860626000005254,
+      "backward": 12.947463999999798,
+      "total": 19.808090000005052,
+      "allocated_before_backward_mib": 548.25
+    },
+    {
+      "forward": 6.937682000000223,
+      "backward": 12.96204399999823,
+      "total": 19.899725999998452,
+      "allocated_before_backward_mib": 548.25
+    },
+    {
+      "forward": 6.830387999997356,
+      "backward": 12.886057999999423,
+      "total": 19.71644599999678,
+      "allocated_before_backward_mib": 548.25
+    },
+    {
+      "forward": 6.791814999999701,
+      "backward": 12.82013299999818,
+      "total": 19.61194799999788,
+      "allocated_before_backward_mib": 548.25
+    },
+    {
+      "forward": 6.824106000003383,
+      "backward": 12.855540000003884,
+      "total": 19.679646000007267,
+      "allocated_before_backward_mib": 548.25
+    },
+    {
+      "forward": 6.736639999999738,
+      "backward": 12.708482000000743,
+      "total": 19.44512200000048,
+      "allocated_before_backward_mib": 548.25
+    },
+    {
+      "forward": 6.72538900000319,
+      "backward": 12.725013000000729,
+      "total": 19.45040200000392,
+      "allocated_before_backward_mib": 548.25
+    },
+    {
+      "forward": 6.854062999998689,
+      "backward": 12.885087000000794,
+      "total": 19.739149999999483,
+      "allocated_before_backward_mib": 548.25
+    },
+    {
+      "forward": 6.8917549999980565,
+      "backward": 12.77710200000115,
+      "total": 19.668856999999207,
+      "allocated_before_backward_mib": 548.25
+    },
+    {
+      "forward": 6.71969799999772,
+      "backward": 12.849756999997908,
+      "total": 19.569454999995628,
+      "allocated_before_backward_mib": 548.25
+    },
+    {
+      "forward": 6.895392000004108,
+      "backward": 13.510242999998923,
+      "total": 20.40563500000303,
+      "allocated_before_backward_mib": 548.25
+    },
+    {
+      "forward": 7.0028149999998845,
+      "backward": 12.748987000001932,
+      "total": 19.751802000001817,
+      "allocated_before_backward_mib": 548.25
+    },
+    {
+      "forward": 6.848472999998023,
+      "backward": 12.990028000004372,
+      "total": 19.838501000002395,
+      "allocated_before_backward_mib": 548.25
+    },
+    {
+      "forward": 6.751889000000233,
+      "backward": 12.832176999999945,
+      "total": 19.584066000000178,
+      "allocated_before_backward_mib": 548.25
+    },
+    {
+      "forward": 6.721210999998561,
+      "backward": 12.772542999996972,
+      "total": 19.493753999995533,
+      "allocated_before_backward_mib": 548.25
+    },
+    {
+      "forward": 6.691854999999691,
+      "backward": 12.643417999996132,
+      "total": 19.335272999995823,
+      "allocated_before_backward_mib": 548.25
+    },
+    {
+      "forward": 6.790803999997763,
+      "backward": 12.812457999999083,
+      "total": 19.603261999996846,
+      "allocated_before_backward_mib": 548.25
+    },
+    {
+      "forward": 6.727734000001817,
+      "backward": 12.800757000000829,
+      "total": 19.528491000002646,
+      "allocated_before_backward_mib": 548.25
+    },
+    {
+      "forward": 6.772387999994578,
+      "backward": 12.76055099999951,
+      "total": 19.532938999994087,
+      "allocated_before_backward_mib": 548.25
+    },
+    {
+      "forward": 6.780002999995816,
+      "backward": 12.732888000002163,
+      "total": 19.51289099999798,
+      "allocated_before_backward_mib": 548.25
+    },
+    {
+      "forward": 6.771998000004942,
+      "backward": 12.799373000000003,
+      "total": 19.571371000004945,
+      "allocated_before_backward_mib": 548.25
+    },
+    {
+      "forward": 6.811542000001225,
+      "backward": 13.002860000000283,
+      "total": 19.814402000001508,
+      "allocated_before_backward_mib": 548.25
+    },
+    {
+      "forward": 6.969882999996457,
+      "backward": 13.523514999995712,
+      "total": 20.49339799999217,
+      "allocated_before_backward_mib": 548.25
+    },
+    {
+      "forward": 7.101241999997399,
+      "backward": 13.700131000000226,
+      "total": 20.801372999997625,
+      "allocated_before_backward_mib": 548.25
+    },
+    {
+      "forward": 7.522780999998702,
+      "backward": 14.034025000000838,
+      "total": 21.55680599999954,
+      "allocated_before_backward_mib": 548.25
+    },
+    {
+      "forward": 7.445313999994596,
+      "backward": 14.544159999999806,
+      "total": 21.989473999994402,
+      "allocated_before_backward_mib": 548.25
+    },
+    {
+      "forward": 7.893944999999292,
+      "backward": 15.251902999999345,
+      "total": 23.145847999998637,
+      "allocated_before_backward_mib": 548.25
+    },
+    {
+      "forward": 8.07257299999975,
+      "backward": 15.433969000000047,
+      "total": 23.506541999999797,
+      "allocated_before_backward_mib": 548.25
+    },
+    {
+      "forward": 8.23604300000369,
+      "backward": 15.456491000001904,
+      "total": 23.692534000005594,
+      "allocated_before_backward_mib": 548.25
+    },
+    {
+      "forward": 8.341602999998088,
+      "backward": 15.740108000002806,
+      "total": 24.081711000000894,
+      "allocated_before_backward_mib": 548.25
+    },
+    {
+      "forward": 9.242720999999676,
+      "backward": 17.900033000003646,
+      "total": 27.142754000003322,
+      "allocated_before_backward_mib": 548.25
+    },
+    {
+      "forward": 9.260324999999625,
+      "backward": 17.569887999997036,
+      "total": 26.83021299999666,
+      "allocated_before_backward_mib": 548.25
+    },
+    {
+      "forward": 9.538061000000653,
+      "backward": 14.127370999993616,
+      "total": 23.66543199999427,
+      "allocated_before_backward_mib": 548.25
+    },
+    {
+      "forward": 7.638009000004331,
+      "backward": 15.434008999996252,
+      "total": 23.072018000000583,
+      "allocated_before_backward_mib": 548.25
+    },
+    {
+      "forward": 8.61761599999511,
+      "backward": 16.256828000003054,
+      "total": 24.874443999998164,
+      "allocated_before_backward_mib": 548.25
+    },
+    {
+      "forward": 8.723386999996308,
+      "backward": 16.438251000003845,
+      "total": 25.161638000000153,
+      "allocated_before_backward_mib": 548.25
+    },
+    {
+      "forward": 8.706595999996125,
+      "backward": 16.263541000000714,
+      "total": 24.97013699999684,
+      "allocated_before_backward_mib": 548.25
+    },
+    {
+      "forward": 8.591457000001412,
+      "backward": 16.175785000001497,
+      "total": 24.76724200000291,
+      "allocated_before_backward_mib": 548.25
+    },
+    {
+      "forward": 8.362992999998653,
+      "backward": 15.306586999997762,
+      "total": 23.669579999996415,
+      "allocated_before_backward_mib": 548.25
+    },
+    {
+      "forward": 8.239989999999864,
+      "backward": 15.400615000004336,
+      "total": 23.6406050000042,
+      "allocated_before_backward_mib": 548.25
+    },
+    {
+      "forward": 8.421114000000784,
+      "backward": 15.280977999999834,
+      "total": 23.70209200000062,
+      "allocated_before_backward_mib": 548.25
+    },
+    {
+      "forward": 8.020052999995642,
+      "backward": 15.175568000003636,
+      "total": 23.195620999999278,
+      "allocated_before_backward_mib": 548.25
+    }
+  ],
+  "summary_ms": {
+    "forward": {
+      "mean": 7.430198479999319,
+      "stdev": 0.8467551274807664
+    },
+    "total": {
+      "mean": 21.406320859999468,
+      "stdev": 2.3588257012279157
+    },
+    "backward": {
+      "mean": 13.976122380000149,
+      "stdev": 1.535911689758807
+    }
+  },
+  "allocated_before_backward_mib": 548.25,
+  "peak_allocated_mib": 2088.25
+}
